@@ -1,0 +1,134 @@
+@font-face {
+  font-family: 'regular';
+  src: url(bed/DeterminationMonoWeb.ttf);
+}
+body {
+    background-color:black;background-image:url(aboutme/flowergrays.png);
+}
+html{
+    font-family:'regular';
+}
+button {
+    all: unset;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+}
+html {cursor: url("bed/someoneshand.png"), auto;}
+a:hover {cursor: url("bed/someoneshand.png"), auto;}
+a:link {
+    color: #b978e4;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: #b978e4;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: #dfb0ff;
+    background-color: transparent;
+}
+.center {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+#segment {
+    width: 600px;
+    background: #383838;
+    background-image: url('aboutme/stars.png');
+    background-repeat: repeat;
+    background-attachment: local;
+    border-collapse: collapse;
+    border-radius: 7px;
+    border: 1px solid;
+    border-color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    animation: 2s alternate fadein, 1.5s alternate slide;
+
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slide {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0px); }
+}
+ 
+
+#fader.fade-out {
+    opacity: 0;
+    animation-name: fade-out;
+}
+
+#fader.fade-in {
+    opacity: 1;
+    animation-name: fade-in;
+}
+
+
+.online {
+    padding:0px;
+    border-radius: 3px;
+    border: 3px solid transparent;
+    background-color: #c0c4c03d;
+}
+.online:hover {
+    padding:0px;
+    border-radius: 3px;
+    border: 3px solid transparent;
+    background-color: #f5f5f53d;
+}
+.link {
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
+}
+.link:hover {
+        transform: scale(1.5, 1.5);
+        -webkit-transition: 0.1s;
+        transition: 0.1s;
+}
+@keyframes ScanlineAnimationLeft {
+    0% {transform: translateX(0px) translateY(0px);}100% {transform: translateX(-32px) translateY(-32px);}
+}
+body::before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: calc(100% + 32px);
+    height: calc(100% + 32px);
+    background-image: url(bed/computeroverlay.png);
+    background-position-x: 0px;
+    background-position-y: 0px;
+    background-repeat: repeat;
+    z-index: 10000000;
+    animation: ScanlineAnimationLeft 2s linear infinite;
+    animation-name: ScanlineAnimationLeft;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    pointer-events: none;
+    opacity: 1;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
