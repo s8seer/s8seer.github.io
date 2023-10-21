@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>RSS title</title>
+  <link> https://s8seer.github.io/ </link>
+  <description> s8seer rss feed </description>
+  <language>en-us</language>
+  <item>
+    <title>s8seer update 2023 october 21</title>
+    <link> https://s8seer.github.io/ </link>
+    <description> 
+      RSS feed is now available.
+      It may be a mess for now but it'll probably get better.
+      Youtube embed has been removed since it has google cookies which are not really great.
+    </description>
+  </item>
+  </channel>
+
+</rss>
