@@ -18,7 +18,7 @@
     <updated>2023-12-31T00:00:00Z</updated>
     <summary>Its a test</summary>
     <content type="html">
-      <p>Hello hello this is a test paragrapg<br> i love how breaks workg</p>
+      <p>Hello hello this is a test paragrapg<br/> i love how breaks workg</p>
       <p>This is test paragprah 2</p>
     </content>
     <category term="blog"/>
