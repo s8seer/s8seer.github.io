@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>s8seer.github.io</title>
+  <id>https://s8seer.github.io/</id>
+  <link rel="self" href="https://s8seer.github.io/doctype/atom.xml"/>
+  <link rel="alternate" href="https://s8seer.github.io/"/>
+  <updated>2023-12-31T00:00:00Z</updated>
+  <author>
+    <name>s8seer</name>
+  </author>
+
+  <entry>
+    <title>Test title</title>
+    <id>s8srgthbio-tstttl</id>
+    <link type="text/html" href="https://s8seer.github.io/"/>
+    <published>2023-12-31T00:00:00Z</published>
+    <updated>2023-12-31T00:00:00Z</updated>
+    <summary>Its a test</summary>
+    <content type="html">
+      <p>Hello hello this is a test paragrapg</p>
+      <p>This is test paragprah 2</p>
+    </content>
+    <category term="blog"/>
+  </entry>
+
+</feed>
