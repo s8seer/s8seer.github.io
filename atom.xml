@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>s8seer.github.io</title>
+  <id>https://s8seer.github.io/</id>
+  <link rel="self" href="https://s8seer.github.io/doctype/atom.xml"/>
+  <link rel="alternate" href="https://s8seer.github.io/"/>
+  <updated>2024-01-01T00:00:00Z</updated>
+  <author>
+    <name>s8seer</name>
+  </author>
+
+  <entry>
+    <title>Homepage rewamp</title>
+    <summary>Homepage rewamp</summary>
+    <id>s8srgthbio-20240101-homepage</id>
+    <published>2024-01-01T00:00:00Z</published>
+    <updated>2024-01-01T00:00:00Z</updated>
+    <content type="html">
+      <p> Happy new years! Remade the homepage from scratch. It now has horizontal figure rather than a vertical one which will be hell to make it mobile compatible. Also added; a notepad to store your sensitive information, RSS/Atom feed display to display the latest entry, buttons to other pages and a chatbox. Prolly will design the other pages as well but it takes too much effort so no promises. </p>
+      <p> Have a great day! xoxo </p>
+    </content>
+    <link type="text/html" href="https://s8seer.github.io/"/>
+  </entry>
+
+</feed>
