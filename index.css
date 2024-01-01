@@ -86,8 +86,20 @@ a:link { text-decoration: none; }
 #cboxEmbed {
     left: 0; bottom: 0;
     position: absolute;
-    margin: 0px 0px 125px 10px;
+    margin: 0px 0px 123px 10px;
+    padding: 0;
     background-image: url(graphics/scenery/halloweenorange.png) ;
+}
+#cboxEmbed a{
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    width: 315px;
+    background-image: url(graphics/scenery/textbg.png);
+}
+#cboxEmbed iframe{
+    margin-bottom: 14px;
 }
 #bottombar { width: 1001px; }
 #notepad:focus{ outline: none; }
