@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <!-- beep boop -->
+<head>
+    <title>/home/s8seer/</title>
+    <link rel="icon" href="graphics/arts/webhome.png">
+
+    <link rel="stylesheet" href="index.css" >
+    <link rel="stylesheet" href="shell.css"/>
+    <link rel="stylesheet" href="checkbox.css"/>
+    
+    <meta http-equiv="content-type" content="text/html;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+</head>
+
+<body>
+    <div id="taskbar">
+        <a href="https://github.com/s8seer/s8seer.github.io" class="bar" id="exit">[ &lt;EXIT ]</a>
+        <span id="fps" class="unselectable">0</span>
+        <div  id="barcode" class="hcenter"></div>
+        <div id="jsclock" class="bar unselectable">00:00:00</div> <div id="calendar">day/month/year</div>
+    </div>
+
+    <div id="daddydiv" class="vhcenter" style="text-align: center;">
+        <div id="prison">
+
+            <div id="leftcontent"><br>
+                <a href="https://s8seer.github.io/"><img id="led" src="./graphics/arts/led_sign.gif" alt="3d led sign.gif"></a>
+                <div class="textbox">
+                    <div class="ctext">                 sitenav:                                                            </div>
+                    <a href="./graphics.html">                                                 > links & resources          </a><br>                    
+                    <a href="./aboutme.html">                                                  > about me                   </a><br>
+                    <a onclick="toggledisplay(); event.preventDefault();" href="./shell.html"> > open a console             </a><br>
+                    <a href="./atom.xml">                                                      > atom/rss feed              </a><br>
+                </div>
+                <div class="textbox">
+                    <div class="ctext">                 github repos:                                                       </div>
+                    <a href="https://github.com/s8seer/win11dotfiles">                          > windows 11 dotfiles       </a><br>
+                    <a href="https://github.com/s8seer/dotfiles">                               > arch linux dotfiles       </a><br>
+                </div>
+                <div class="textbox">
+                    <a href="https://github.com/s8seer/s8seer.github.io">                       this webpage is open source! </a><br>
+                </div>
+                
+            </div>
+
+            <div id="rightcontent"><iframe src="3drenderer.html" id="ViewPort3D"></iframe></div>
+
+            <div id="gazette"></div>
+            
+            <div id="statusBackground"></div>
+            <div id="pfpcontainer">
+                <div id="pfp" title="name: s8seer&#013;prnns: she/her&#013;alive4: 18 years"><a href="https://github.com/s8seer"><img src="graphics/arts/githubpfp.png" width="100%" alt="profile picture.png"></a></div>
+                <div id="status"><img id="rodent" src="graphics/arts/rodent.png" alt="rodent mouse.png" ><b id="statusTitle">status:</b>
+                    <span id="statusText">
+                        Just kidding i ate the cats 😋 i ate them all
+                    </span>
+                </div>
+            </div>
+            
+            <a href="3drenderer.html"><img id="donut" src="./graphics/arts/spin.gif" alt="spinning donut.gif"></a>
+
+            <div id="afterStatus">
+                <div id="selfButton">
+                        <img id="buttonIMG" src="./graphics/hots/button_2.png" alt="this site's 88x31 button.png">
+                        <br><p class="textbox">Here's  my button <span id="buttonIndex">0/0</span> (click to change)</p>
+                </div>
+            </div>
+
+            <div id="cboxEmbed"><a href="https://my.cbox.ws/s8seer">cbox</a><br><iframe src="https://www5.cbox.ws/box/?boxid=948507&boxtag=bBSbKT" allowtransparency="yes" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe></div>
+
+            <div id="buttonWall">
+                <a class="bob" href="https://leviathren.neocities.org/home">    <img src="graphics/hots/btn_leviathren.gif" alt="leviathren's 88x31 button.gif">     </a>
+                <a class="bob" href="https://dimden.dev/">                      <img src="graphics/hots/btn_dimden.gif"     alt="dimden's 88x31 button.gif">         </a>
+                <a class="bob" href="https://parkaction.neocities.org/">        <img src="graphics/hots/btn_parkaction.gif" alt="parkaction's 88x31 button.gif">     </a>
+                <a class="bob" href="https://freckleskies.neocities.org/home/"> <img src="graphics/hots/btn_skybutton.gif"  alt="freckleskies' 88x31 button.gif">    </a>
+                <a class="bob" href="https://olliveen.neocities.org/">          <img src="graphics/hots/btn_olliveen.gif"   alt="olliveen's 88x31 button.gif">       </a>
+                <a class="bob" href="https://phrogee.neocities.org/main">       <img src="graphics/hots/btn_phrogee.gif"    alt="phrogee's 88x31 button.gif">        </a>
+                <a class="bob" href="https://kyomakus.online/">                 <img src="graphics/hots/btn_kyoonline.gif"  alt="kyomaku's 88x31 button.gif">        </a>
+                <a class="bob" href="https://corru.observer/">                  <img src="graphics/hots/btn_corru.gif"      alt="corru.observer's 88x31 button.gif"> </a>
+            </div>
+        </div>
+        <div id="date">2023-2024</div>
+    </div>
+
+    <!-- scripts -->
+    <div name="console" id="terminal-container-window"><div id="terminal-title"></div><div id="terminal"><form id="shellForm"><p id="shellParagraph"><input id="shellInput" autocomplete=off></p></form></div></div>
+    <script src="./js/clock.js"></script> 
+    <script src="./js/catsay.js"></script>
+    <script src="./js/fps.js"></script>
+    <script src="./js/rss.js"></script>
+    <script src="./js/shell.js"></script><script>dragElement(terminal_window, document.getElementById("terminal-title"));</script>
+    <script src="./js/mediums.js"></script>
+    <!-- <script src="./js/scanline.js"></script> -->
+</body>
+</html>
