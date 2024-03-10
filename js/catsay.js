@@ -32,3 +32,4 @@ catsay(document.getElementById("pfp"), "Hii!!");
 catsay(document.getElementById("exit"), "Baii!!<br>Take care!!");
 catsay(document.getElementById("buttonWall"), "Go and fetch the little trinkets hidden in these sites!");
 catsay(document.getElementById("donut"), "Yum its made<br>out of charcoal");
+catsay(document.getElementById("ViewPort3D"), "There's not a single thought behind those eyes");
