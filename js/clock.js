@@ -29,13 +29,25 @@ setInterval(time, 1000);
 
 // Calendar stuff
 let dailyComment = '';
-if (month == "June") { dailyComment = "Happy pride month!"}
-else if (month == "January" && dd == '01') { dailyComment = "Happy new years!"}
-else if (month == "March" && dd == '14') { dailyComment = "Pies nom nom nom"}
-else if (month == "March" && dd == '15') { dailyComment = "Goodbye Ceasar"}
-else if (month == "October") { dailyComment = "Happy Halloween!"}
-else { dailyComment = 'Have a great day!'; };
+if      (month == "June")                   { dailyComment = "Happy pride month!"                             }
+else if (month == "October")                { dailyComment = "arr arr arr skeletons<br>"                      }
+
+else if (month == "January"  && dd == '01') { dailyComment = "Happy new years!"                               }
+else if (month == "February" && dd == '01') { dailyComment = "Happy national change your password day!"       }
+else if (month == "February" && dd == '14') { dailyComment = "Happy valentine's day!"                         }
+else if (month == "February" && dd == '28') { dailyComment = "Happy rare diseases day"                        }
+else if (month == "February" && dd == '29') { dailyComment = "Happy birthday"                                 }
+else if (month == "March"    && dd == '14') { dailyComment = "Pies nom nom nom"                               }
+else if (month == "March"    && dd == '15') { dailyComment = "Goodbye Ceasar"                                 }
+else if (month == "April"    && dd == '01') { dailyComment = "Let's get this day over with already"           }
+else if (month == "May"      && dd == '24') { dailyComment = "Happy world schizophrenia awareness day"        }
+else if (month == "October"  && dd == '02') { dailyComment += "Happy international day of non-violence"       }
+else if (month == "October"  && dd == '10') { dailyComment += "Happy world mental health day"                 }
+else if (month == "October"  && dd == '31') { dailyComment += "Happy halloween!"                              }
+
+else                                        { dailyComment = 'Have a nice day!'                               };
 
 clock_tooltip.innerHTML = `${today.toLocaleDateString("en-US", date_options)}<br>${dailyComment}`;
 jsclock.addEventListener('mouseover', function() { clock_tooltip.style.display = 'block'; });
 jsclock.addEventListener('mouseleave', function() { clock_tooltip.style.display = 'none'; });
+
