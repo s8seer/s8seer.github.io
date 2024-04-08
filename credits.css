@@ -1,0 +1,53 @@
+
+/* html stuff start */
+@font-face {
+  font-family: 'regular';
+  src: url(doctype/DeterminationMonoWeb.ttf);
+}
+@font-face {
+    font-family: 'monospace';
+    src: url(doctype/Profontwindows.ttf);
+}
+:root {
+    --site-bg: rgb(0, 0, 0);
+    --site-fg: white;
+    --translucent-bg: rgba(0, 0, 0, 0.63);
+}
+html{ font-family:'regular';}
+body {
+    line-height: 18px;
+    background-color: var(--site-bg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("graphics/scenery/nightsky.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+a{color: #e0ba4f}
+a:link { text-decoration: underline; }
+
+.vhcenter{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+/* html stuff end */
+
+/* prison class */
+#scroller {
+    overflow-y: scroll;
+    color: white;
+    text-align: center;
+    width: 1202px;
+    padding: 10px;
+    overflow: auto;
+    background-position: center;
+    box-sizing: border-box;
+    border: 2px solid var(--translucent-bg);
+    border-collapse: collapse;
+    background-repeat: repeat;
+    margin-bottom: 20px;
+    height: 570px;
+}
+#scroller:before{
+    content: ""; opacity: 0.9;
+    position: absolute; z-index: -1;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-image: url(graphics/scenery/options_dark.png);
+}
+/* prison class end */

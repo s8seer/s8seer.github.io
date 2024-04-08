@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>s8seer.github.io</title>
+  <id>https://s8seer.github.io/</id>
+  <link rel="self" href="https://s8seer.github.io/doctype/atom.xml"/>
+  <link rel="alternate" href="https://s8seer.github.io/"/>
+  <updated>2024-01-30T00:00:00Z</updated>
+  <author>
+    <name>s8seer</name>
+  </author>
+  
+    <entry>
+    <title>Webpage update April 8th</title>
+    <summary>Fix ups and new stuff</summary>
+    <id>s8srgthbio-20240408-update</id>
+    <updated>2024-04-08T00:00:00Z</updated>
+    <content type="html">
+      <p>
+        Moved the credits panel onto its own page.
+        Added a 'projects' page, it's mostly a placeholder but there are few stuff you can check out.
+        Current 3D model is a cat. Meow meow.
+        Fixed a ui bug.
+        Added some unrelated subpages, they'll be added to the site navigation.
+      </p>
+      <p>
+        That's all, have a good day!
+      </p>
+      
+    </content>
+    <link type="text/html" href="https://s8seer.github.io/"/>
+  </entry>
+
+  <entry>
+    <title>Layout and color changes</title>
+    <summary>Layout and color changes</summary>
+    <id>s8srgthbio-20240130-homepage</id>
+    <published>2024-01-30T00:00:00Z</published>
+    <updated>2024-01-30T00:00:00Z</updated>
+    <content type="html">
+      <p>
+          Hello there! Changed the layout a lil some. Added proper credits to the 'links and resources' page, apologies if I had missed any. Embedded a terminal. You can find it under the 'sitenav' panel, or by pressing 'Ctrl+/' on your keyboard. Main page is responsive and mobile compatible now. Also added a 3D model showcase.
+      </p>
+      <p> Have a good day! </p>
+    </content>
+    <link type="text/html" href="https://s8seer.github.io/"/>
+  </entry>
+
+  <entry>
+    <title>Homepage rewamp</title>
+    <summary>Homepage rewamp</summary>
+    <id>s8srgthbio-20240101-homepage</id>
+    <published>2024-01-01T00:00:00Z</published>
+    <updated>2024-01-01T00:00:00Z</updated>
+    <content type="html">
+      <p> Happy new years! Remade the homepage from scratch. It now has horizontal figure rather than a vertical one which will be hell to make it mobile compatible. Also added; a notepad to store your sensitive information, RSS/Atom feed display to display the latest entry, buttons to other pages and a chatbox. Prolly will design the other pages as well but it takes too much effort so no promises. </p>
+      <p> Have a great day! xoxo </p>
+    </content>
+    <link type="text/html" href="https://s8seer.github.io/"/>
+  </entry>
+
+</feed>

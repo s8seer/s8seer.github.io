@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> model showcase </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+            body {
+                margin: 0;
+                background-color: #000;
+                color: black;
+                font-family: Monospace;
+                font-size: 13px; line-height: 24px;
+                overscroll-behavior: none;
+            }
+            a { color: rgb(197, 131, 9); text-decoration: none; }
+            a:hover { text-decoration: underline; }            
+            #info {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                text-align: center;
+                z-index: 1; /* TODO Solve this in HTML */
+                -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; pointer-events: none;
+            }
+            a, button, input, select { pointer-events: auto; }
+            @media all and ( max-width: 640px ) {
+                .lil-gui.root { 
+                    right: auto; top: auto;
+                    max-height: 50%; max-width: 80%;
+                    bottom: 0; left: 0;
+                }
+            }
+        </style>
+	</head>
+
+	<body>
+		<!-- <div id="info"><a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - GLTFLoader<br /></div> -->
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://s8seer.github.io/three.js/three.module.js",
+					"three/addons/": "https://s8seer.github.io/three.js/jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+			import * as THREE from 'three';
+
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+			import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+			let camera, scene, controls, renderer;
+
+			init();
+			render();
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 0.1, 100 );
+				camera.position.set( 1, 2, 5 );
+
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( "#423E3A" );
+
+				const pointLight1 = new THREE.PointLight( "#FFF6E7", 1.8, 0, 0 );
+				pointLight1.position.set( 200, 180, 200 ); 
+				scene.add( pointLight1 );
+
+				const pointLight2 = new THREE.PointLight( "#FFF6E7", 1.8, 0, 0 );
+				pointLight2.position.set( - 700, 250, - 500 );
+				scene.add( pointLight2 );
+				
+				const dracoLoader = new DRACOLoader();
+				dracoLoader.setDecoderPath( 'https://s8seer.github.io/three.js/jsm/libs/draco/gltf/' );
+                
+				const loader = new GLTFLoader();
+				loader.setDRACOLoader( dracoLoader );
+				loader.setPath( 'models/' );
+				loader.load( 'cat.glb', function ( gltf ) {
+					const model = gltf.scene;
+					const scale = 1;
+					model.scale.set(scale,scale,scale);
+					
+
+
+					scene.add( model );
+					// horizontal
+                    model.position.x = 0;
+					// vertical
+                    model.position.y = 1.1;
+					model.rotation.y = 1.5;
+					
+					// the other 3d dimension
+                    scene.position.z = 0;
+					render();
+				} );
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				
+
+				renderer.domElement.style.cursor = "grab";
+				renderer.domElement.addEventListener("mousedown", function(){ renderer.domElement.style.cursor = "grabbing"; });
+				renderer.domElement.addEventListener("mouseup", function(){ renderer.domElement.style.cursor = "grab"; });
+				document.body.appendChild( renderer.domElement );
+
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render );
+				controls.target.set( 0, 2, 0 );
+				controls.update();
+
+				window.addEventListener( 'resize', onWindowResize );
+				
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				render();
+
+			}
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
+		</script>
+
+	</body>
+</html>

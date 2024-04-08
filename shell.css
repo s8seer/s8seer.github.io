@@ -1,0 +1,61 @@
+﻿@font-face {
+    font-family: 'monospace';
+    src: url(/doctype/Profontwindows.ttf);
+}
+:root{
+    --term_border: lightgreen;
+    --term_highlight: lightgreen;
+    --term_bg: rgba(0, 0, 0, 0.747);
+    --term_fg: white;
+    --term_font: 'monospace';
+    --term_font_size: 15px;
+}
+#shellInput{
+    color: var(--term_fg);
+    font-family: var(--term_font);
+    height: var(--term_font_size);
+    font-size: var(--term_font_size);
+    width: 1ch; margin-left: -3px;
+    text-align:left; text-indent: 1px;
+    border: none; outline: none; background: none;
+    caret-color: var(--term_highlight);
+}
+#shellInput:focus{ outline: none; }
+#terminal-container-window {
+    display: none;
+    text-align: left;
+    position: absolute;
+    border: 1px solid var(--term_border);
+    border-radius: 2px;
+    background: var(--term_bg);
+    font-family: var(--term_font);
+}
+#terminal {
+    padding-top: 0;
+    overflow-y: scroll; resize: both;
+    min-width: 100px;
+    width: 500px; height: 200px;
+    color: var(--term_fg);
+    font-size: var(--term_font_size);
+}
+#terminal-title {
+    height:20px;
+    cursor: move;
+    color:var(--term_bg);
+    font-size: 18px;
+    overflow-x: auto;
+    padding:0px 6px 0px 6px;
+    background-color: var(--term_border);
+}
+#terminal-title::selection{
+    color: unset;
+    background: unset;
+}
+#shellParagraph{
+    /* overflow-y: scroll; */
+    padding: 0px 10px 10px 10px;
+}   
+#shellParagraph::selection, #shellInput::selection{
+    color: var(--term_bg);
+    background: white;
+}

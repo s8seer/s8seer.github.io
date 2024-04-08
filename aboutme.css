@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'regular';
+  src: url(doctype/DeterminationMonoWeb.ttf);
+}
+body {
+    background-color:black;background-image:url(graphics/scenery/flowergrays.png);
+}
+html{
+    font-family:'regular';
+}
+p {
+    padding: 2px;
+    margin-right:120px;
+    margin-left:120px;
+}
+a:link {
+    color: #b978e4;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: #b978e4;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: #dfb0ff;
+    background-color: transparent;
+}
+.center {
+    width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+#segment {
+    margin-bottom: 10px;
+    width: 600px;
+    background: #383838;
+    background-image: url('graphics/scenery/stars.png');
+    background-repeat: repeat;
+    background-attachment: local;
+    border-collapse: collapse;
+    border-radius: 7px;
+    border: 1px solid;
+    color: white;
+    border-color: white;
+    text-align: center;
+    /* animation: 2s alternate fadein, 1.5s alternate slide; */
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slide {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0px); }
+}
+.online {
+    height: 28px;
+    padding:0px;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-color: #c0c4c03d;
+}
+.online:hover {
+    padding:0px;
+    border: 3px solid transparent;
+    background-color: #f5f5f53d;
+}
+/* css is very janky with mobile */
+@media only screen and (max-width: 600px) {
+    .center {
+        width: auto;
+        top: 30%;
+        left: 0;
+        margin-left: 5%;
+        transform: translate(0, -30%);
+    }
+    #segment {
+        width: 95%;
+    }
+    p {
+        margin-right:8px;
+        margin-left:8px;
+    }
+}
+
