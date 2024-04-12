@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'regular';
+    src: url(/doctype/Minecraft.otf);
+}
+@font-face {
+    font-family: 'bold';
+    src: url(/doctype/MinecraftBold.otf);
+}
+
+html{font-family:'regular';}
+
+body{
+    background-color:black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(/graphics/scenery/cobblestone.png);
+}
+
+b{
+    font-family: bold;
+    font-weight: normal;
+}
+
+#main{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid black;
+    background: #175b91;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#titlebar{
+    background: black;
+    color: white;
+    padding: 4px;
+
+}
+#titlebar a{
+    color: white;   
+}
+
+#titlebar a:hover{
+    color: black;
+    background: white;
+    
+}
+
+#titlebar span{
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%
+}
+
+#titlebar img{
+    height: 2ch;
+    align-self: center;
+    vertical-align:middle;
+}
+
+#browser{
+    float: left;
+    width: 360px;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    background: #fcb735;
+    border-radius: 8px;
+    
+}
+
+#browser a {
+    color: white;
+    text-decoration: none;
+    background-color: #52a535;
+    padding: 1px;
+}
+#browser a:hover {
+    background-color: #69ce44;
+}
+
+
+#resourcepacks{
+    padding: 10px 4px 4px 4px;
+    box-sizing: border-box;
+    background-color: rgba(26, 21, 21, 0.479);
+}
+
+#resourcepacks div a, #resourcepacks div img{
+    height: 64px;
+    float: left;
+    padding: 0; margin: 0;
+}
+
+#resourcepacks img{
+    background-color: rgba(182, 182, 182, 0.404);
+}
+
+#resourcepacks div span{
+    display:inline-block;
+    position:relative;
+    left: 3px;
+}
+
+#resourcepacks div span:first-of-type{
+    
+    font-family: 'bold';
+}
+
+#resourcepacks div span:last-of-type{
+    color: rgb(223, 223, 223);
+    display: block;
+    font-family: 'regular';
+    
+}
+
+#resourcepacks a{
+    width: 332px;
+    text-decoration: none;
+    background-color: rgba(187, 187, 187, 0.418);
+}
+
+#resourcepacks a:hover{
+    background-color: rgba(187, 187, 187, 0.637);
+}
+
+#resourcepacks div{
+    width: fit-content;
+    height: 64px;
+    margin-bottom: 10px;
+}
+
+#resourcepacks:last-child{
+    margin-bottom: 0px;
+}
