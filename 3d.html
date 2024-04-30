@@ -55,10 +55,11 @@
 			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 			import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
-			let camera, scene, controls, renderer;
+			let group, camera, scene, controls, renderer;
+			let animation = true;
 
 			init();
-			render();
+			animate();
 
 			function init() {
 
@@ -87,25 +88,25 @@
 					const scale = 1;
 					model.scale.set(scale,scale,scale);
 					
-
-
 					scene.add( model );
 					// horizontal
                     model.position.x = 0;
 					// vertical
                     model.position.y = 1.1;
 					model.rotation.y = 1.5;
-					
+					group.add( model );
 					// the other 3d dimension
                     scene.position.z = 0;
 					render();
 				} );
 
+				group = new THREE.Group();
+				scene.add( group );
+
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				
-
 				renderer.domElement.style.cursor = "grab";
 				renderer.domElement.addEventListener("mousedown", function(){ renderer.domElement.style.cursor = "grabbing"; });
 				renderer.domElement.addEventListener("mouseup", function(){ renderer.domElement.style.cursor = "grab"; });
@@ -117,6 +118,12 @@
 				controls.update();
 
 				window.addEventListener( 'resize', onWindowResize );
+				document.getElementsByTagName('canvas')[0].addEventListener('mouseenter', function(e) {
+					animation = false;
+				})
+				document.getElementsByTagName('canvas')[0].addEventListener('mouseleave', function(e) {
+					animation = true;
+				})
 				
 			}
 
@@ -125,6 +132,19 @@
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
+				render();
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				if (animation){
+					group.rotation.y -= 0.005;
+				}
+				
+
 				render();
 
 			}
