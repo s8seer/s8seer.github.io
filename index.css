@@ -2,11 +2,11 @@
 /* html stuff start */
 @font-face {
   font-family: 'regular';
-  src: url(doctype/DeterminationMonoWeb.ttf);
+  src: url('/doctype/DeterminationMonoWeb.ttf');
 }
 @font-face {
     font-family: 'monospace';
-    src: url(doctype/Profontwindows.ttf);
+    src: url('/doctype/Profontwindows.ttf');
 }
 
 :root {
@@ -161,7 +161,8 @@ input[type=checkbox].css-checkbox {
 #gazette::selection, #gazette > *::selection { color: black; background-color: rgba(102, 102, 102, 0.473); }
 
 #led { width: 260px; }
-#ViewPort3D{ width: 315px; height: 235px; position: absolute; right: 0; bottom: 0; margin: 0px 15px 55px 0px; }
+#ViewPort3D{ width: 315px; height: 235px; position: absolute; right: 0; bottom: 0; margin: 0px 15px 55px 0px;
+    border: none; padding: 5px; box-sizing: border-box; background-image:  url('/graphics/scenery/hash.png');  }
 /* main pager end */
 
 /* second pager */
