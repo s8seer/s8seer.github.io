@@ -7,8 +7,8 @@
 		<style>
             body {
                 margin: 0;
-                background-color: #000;
                 color: black;
+				background-color: black;
                 font-family: Monospace;
                 font-size: 13px; line-height: 24px;
                 overscroll-behavior: none;
@@ -43,7 +43,8 @@
 			{
 				"imports": {
 					"three": "https://s8seer.github.io/three.js/three.module.js",
-					"three/addons/": "https://s8seer.github.io/three.js/jsm/"
+					"three/addons/": "https://s8seer.github.io/three.js/jsm/",
+					"local": "./"
 				}
 			}
 		</script>
@@ -54,37 +55,81 @@
 			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 			import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+			import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
 
+			import Stats from 'three/addons/libs/stats.module.js';
+
+			let particleLight;
+			let container, stats;
 			let group, camera, scene, controls, renderer;
 			let animation = true;
 
+			renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+			
+
+			// vibrant
+			//renderer.toneMapping = THREE.ACESFilmicToneMapping
+			//renderer.toneMapping = THREE.CineonToneMapping 
+
+			// realistic?
+			//renderer.toneMapping = THREE.ReinhardToneMapping
+			//renderer.toneMapping = THREE.AgXToneMapping
+
+			renderer.toneMappingExposure = 1
+			let effect = new OutlineEffect( renderer, {defaultThickness: 0.012} );
+			effect.alpha = 0;
+			effect.setSize(200, 200)
+			console.log(effect)
 			init();
 			animate();
 
 			function init() {
-
 				camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 0.1, 100 );
 				camera.position.set( 1, 2, 5 );
 
+				group = new THREE.Group();
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( "#423E3A" );
+				// scene.background = new THREE.Color( "#423E3A" );
 
 				const pointLight1 = new THREE.PointLight( "#FFF6E7", 1.8, 0, 0 );
-				pointLight1.position.set( 200, 180, 200 ); 
+				pointLight1.position.set(  200, 180, 200 ); 
+				pointLight1.castShadow = true;
 				scene.add( pointLight1 );
 
-				const pointLight2 = new THREE.PointLight( "#FFF6E7", 1.8, 0, 0 );
-				pointLight2.position.set( - 700, 250, - 500 );
-				scene.add( pointLight2 );
-				
 				const dracoLoader = new DRACOLoader();
 				dracoLoader.setDecoderPath( 'https://s8seer.github.io/three.js/jsm/libs/draco/gltf/' );
-                
+				const colors = new Uint8Array( 2 + 2 );
+
+				for ( let c = 0; c <= colors.length; c ++ ) {
+
+					colors[ c ] = ( c / colors.length ) * 256;
+
+				}
+
+				const gradientMap = new THREE.DataTexture( colors, colors.length, 1, THREE.RedFormat );
+				gradientMap.needsUpdate = true;
+
 				const loader = new GLTFLoader();
 				loader.setDRACOLoader( dracoLoader );
 				loader.setPath( 'models/' );
 				loader.load( 'cat.glb', function ( gltf ) {
 					const model = gltf.scene;
+					model.traverse((o) => {
+						if (o.isMesh) {
+							let r = o.material.color.r;
+							let g = o.material.color.g;
+							let b = o.material.color.b;
+
+							const modelColor = new THREE.Color().setRGB( r, g, b ).multiplyScalar( 1 );
+							o.material = new THREE.MeshToonMaterial( {color: modelColor } );
+
+							// Meshes of objects that shouldn't have an outline
+							if( ["Eyeball", "Eye_White", "Hole"].includes(o.name) ){
+								o.material.userData.outlineParameters = {thickness: 0}
+							}
+						}
+					});
+
 					const scale = 1;
 					model.scale.set(scale,scale,scale);
 					
@@ -100,10 +145,11 @@
 					render();
 				} );
 
-				group = new THREE.Group();
+				
+				
+				
 				scene.add( group );
 
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				
@@ -112,12 +158,14 @@
 				renderer.domElement.addEventListener("mouseup", function(){ renderer.domElement.style.cursor = "grab"; });
 				document.body.appendChild( renderer.domElement );
 
+
 				const controls = new OrbitControls( camera, renderer.domElement );
 				controls.addEventListener( 'change', render );
 				controls.target.set( 0, 2, 0 );
 				controls.update();
 
 				window.addEventListener( 'resize', onWindowResize );
+				
 				document.getElementsByTagName('canvas')[0].addEventListener('mouseenter', function(e) {
 					animation = false;
 				})
@@ -139,19 +187,17 @@
 			function animate() {
 
 				requestAnimationFrame( animate );
-
 				if (animation){
-					group.rotation.y -= 0.005;
+					scene.rotation.y -= 0.005;
 				}
-				
-
 				render();
 
 			}
 
 			function render() {
 
-				renderer.render( scene, camera );
+				//renderer.render( scene, camera );
+				effect.render( scene, camera );
 
 			}
 		</script>
