@@ -1,7 +1,7 @@
 
 // content var gets the original html elements inside 'moodtext'
 // and saves it as a variable
-const screenshot = document.getElementById('screenshots').firstElementChild;
+const screenshot = document.getElementById('screenshots').getElementsByTagName('img')[0];
 const default_image = screenshot.src;
 const description = document.getElementById('description');
 const default_description = description.innerHTML;
@@ -30,7 +30,7 @@ function catsay(element, comment, image = default_image) {
 
 // document.getElementById("main").addEventListener('mouseleave', function() { mouseOut() });
 
-// add catsays, make sure the images are 4:3 ratio
+// add catsays, images will be cropped via css
 catsay(document.getElementById("Checklists"),
   "Html and Js based web app to manage your to-dos and schedules",
   "./assets/thumbnails/checklist.png");
@@ -39,9 +39,9 @@ catsay(document.getElementById("YoutubeThumbnailGetter"),
   "Get the Youtube video thumbnail from a url or a video id.",
   "./assets/thumbnails/youtube_thumbnail.png" );
   
-catsay(document.getElementById("item3"), 
+catsay(document.getElementById("cpp_engine"), 
   "This is the description for item 3",
-  "./assets/thumbnails/kiss.png" );
+  "./assets/thumbnails/cpp_engine.png" );
 
 
 

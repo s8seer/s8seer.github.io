@@ -68,13 +68,18 @@ body{
 
 #screenshots{
     width: 370px;
+    padding: 10px;
+    margin: 10px;
     float: right;
+    overflow: hidden;
 }
 
-
 #screenshots img{
+    height: 300px;
     width: 350px;
+    object-fit: cover;
     border-radius: 8px;
+    
 }
 
 #description{
