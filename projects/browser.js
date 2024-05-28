@@ -6,8 +6,6 @@ const default_image = screenshot.src;
 const description = document.getElementById('description');
 const default_description = description.innerHTML;
 
-const comment_prefix = 'comment:';
-
 // resets the text after mouse leave
 function mouseOut() {
   if (description.innerHTML == default_description && screenshot.src == default_image){
@@ -36,12 +34,9 @@ catsay(document.getElementById("Checklists"),
   "./assets/thumbnails/checklist.png");
 
 catsay(document.getElementById("YoutubeThumbnailGetter"), 
-  "Get the Youtube video thumbnail from a url or a video id.",
+  "Get the Youtube video thumbnail from a url or a video id",
   "./assets/thumbnails/youtube_thumbnail.png" );
   
 catsay(document.getElementById("cpp_engine"), 
-  "This is the description for item 3",
+  "Game engine prototype written in c++ and opengl",
   "./assets/thumbnails/cpp_engine.png" );
-
-
-
