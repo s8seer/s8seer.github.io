@@ -32,11 +32,10 @@ function catsay(element, comment, image = default_image) {
 catsay(document.getElementById("Checklists"),
   "Html and Js based web app to manage your to-dos and schedules",
   "./assets/thumbnails/checklist.png");
-
-catsay(document.getElementById("YoutubeThumbnailGetter"), 
-  "Get the Youtube video thumbnail from a url or a video id",
-  "./assets/thumbnails/youtube_thumbnail.png" );
   
 catsay(document.getElementById("cpp_engine"), 
   "Game engine prototype written in c++ and opengl",
   "./assets/thumbnails/cpp_engine.png" );
+
+
+
