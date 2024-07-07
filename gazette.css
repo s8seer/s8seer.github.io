@@ -1,0 +1,95 @@
+
+/* html stuff start */
+@font-face {
+  font-family: 'regular';
+  src: url(doctype/DeterminationMonoWeb.ttf);
+}
+@font-face {
+    font-family: 'monospace';
+    src: url(doctype/Profontwindows.ttf);
+}
+:root {
+    --site-bg: rgb(0, 0, 0);
+    --site-fg: white;
+    --translucent-bg: rgba(0, 0, 0, 0.63);
+}
+html{ font-family:'regular';}
+body {
+    line-height: 18px;
+    background-color: var(--site-bg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("graphics/scenery/nightsky.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+a{color: #e0ba4f}
+a:link { text-decoration: underline; }
+
+.vhcenter{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+/* html stuff end */
+
+#scroller {
+    overflow-y: scroll;
+    color: white;
+    text-align: center;
+    width: 1364px;
+    padding: 20px;
+    overflow: auto;
+    background-position: center;
+    box-sizing: border-box;
+    border: 2px solid var(--translucent-bg);
+    border-collapse: collapse;
+    background-repeat: repeat;
+    margin-bottom: 20px;
+    height: 570px;
+}
+#scroller:before{
+    content: ""; opacity: 0.9;
+    position: absolute; z-index: -1;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-image: url(graphics/scenery/options_dark.png);
+}
+
+#epic_title{
+    white-space: nowrap;
+    overflow-wrap: normal;
+    display: inline;
+}
+
+#disclaimer{
+    margin-top: -100px;
+    padding-top: -10px;
+    margin-bottom: 100px;
+}
+
+#gazetteDisplay div{
+    float: left;
+    color: black;
+    text-align: left;
+    background-color: rgb(218, 218, 218);
+    background-position: center;
+    overflow-y: scroll;
+    padding: 0px 16px 8px 16px;
+    margin: 10px;
+    width: 316px; height: 190px;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: justify;
+    box-sizing: border-box;
+}
+#gazetteDisplay div h1{
+    border-bottom: #000 1px solid;
+    border-top: #000 1px solid;
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+}
+
+#gazetteDisplay div h1 a{
+    color: unset;
+    text-decoration: none;
+}
+#gazetteDisplay div h1 a:hover{
+    background-color: #0000003f;
+
+}
