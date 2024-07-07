@@ -33,8 +33,6 @@ function explode(){
 }
 
 function cycleButtons(buttons) {
-    buttonIndex.innerHTML = `${button_index+1}/${buttons.length}`;
-    buttonImage.src = imageDir + buttons[button_index++];
     if (button_index == buttons.length) { button_index = 0; };
     if (button_clicks > 15) { 
         const canvas = document.createElement('canvas')
@@ -44,7 +42,10 @@ function cycleButtons(buttons) {
         buttonImage.src = canvas.toDataURL();
         buttonImage.onclick = function() {};
         explode();
+        return;
     } else {button_clicks++}
+    buttonIndex.innerHTML = `${button_index+1}/${buttons.length}`;
+    buttonImage.src = imageDir + buttons[button_index++];
 };
 function loadButtons(buttons) {
     cycleButtons(buttons);

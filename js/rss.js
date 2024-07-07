@@ -22,7 +22,7 @@ fetch(FEED_URL)
     .then(data => {
         const item = data.querySelector("entry");
         let html = `
-                <h1>${dateParser(data.querySelector("entry").querySelector("updated").innerHTML).toLocaleDateString("en-US", date_options)}</h1>
+                <h1><a href="/gazette.html">${dateParser(data.querySelector("entry").querySelector("updated").innerHTML).toLocaleDateString("en-US", date_options)}</a></h1>
                 <p> ${item.querySelector("content").innerHTML} </p>
         `;
         FEED_DISPLAY.innerHTML = html;
