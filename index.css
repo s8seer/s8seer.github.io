@@ -1,326 +1,311 @@
 
 /* html stuff start */
 @font-face {
-    font-family: 'regular';
-    src: url('/doctype/DeterminationMonoWeb.ttf');
-  }
-  @font-face {
-      font-family: 'monospace';
-      src: url('/doctype/Profontwindows.ttf');
-  }
-  
-  :root {
-      --site-bg: rgb(0, 0, 0);
-      --site-fg: white;
-      --translucent-bg: rgba(0, 0, 0, 0.63);
-  }
-  html{ font-family:'regular';}
-  body {
-      line-height: 18px;
-      background-color: var(--site-bg);
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("graphics/scenery/nightsky.png");
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-  }
-  a{color: #aa8728}
-  a:link { text-decoration: underline; }
-  .textbox a:hover, #cboxEmbed a:hover { text-decoration: none; color: white; background-color: #aa8728;}
-  ::selection{ color: var(--site-fg); background: var(--site-bg); }
-  /* html stuff end */
-  
-  /* site stuff start */
-  #taskbar{ 
-      color:white;
-      line-height: 16px; width: 100vw;
-      position: fixed; display: flex; top: 0; left:0;
-      white-space:nowrap;
-      background-color: var(--translucent-bg);
-      padding: 3px 2px 4px 2px;
-  }
-  #fps { text-align: left; color: rgb(0, 224, 0); margin-left: 10px; }
-  #exit { width: 70px; text-decoration: underline; color: inherit; margin-left: 4px; }
-  #exit:hover { color: var(--translucent-bg); background-color: white; }
-  #exit::selection{ color: var(--translucent-bg); background-color: white; }
-  #jsclock { margin-right: 6px; width:70px; cursor: default; position: absolute; right: 0; }
-  #calendar {
-      position: absolute;
-      right:0;
-      background-color: inherit;
-      padding: 4px;
-      margin: 30px 15px 0px 0px;
-      display: none;
-  }
-  input[type=checkbox].css-checkbox + label.css-label {
-      padding-left:20px;
-      margin-left: 5px;
-      height:15px; 
-      background-repeat:no-repeat;
-      vertical-align:middle;
-      cursor:pointer;
-  }
-  input[type=checkbox].css-checkbox:checked + label.css-label {
-      background-position: 0 -15px;
-  }
-  input[type=checkbox].css-checkbox {
-      position: absolute; 
-      visibility: hidden;
-      height:1px; width:1px;  
-  }
-  #mute_label{background-image:url(./graphics/arts/mute.png);}
-  
-  
-  .textbox {
-      padding: 1px;
-      text-align: left;
-      background-color: white;
-      background-image: url('/graphics/scenery/textbg.png');
-  }
-  
-  #checkers{
-      height: 40px;
-      background-color: orange;
-      background-image: url(/graphics/scenery/checkertranslucent.gif);
-      background-size: 60px;
-  }
-  
-  .ctext{ text-align: center; }
-  .unselectable::selection, label::selection, #barcode img::selection{ background: unset; color:unset;}
-  .unselectable:hover{cursor: default;}
-  /* site stuff end */
-  
-  /* prison class */
-  #prison {
-      text-align: center;
-      width: 1202px;
-      padding: 10px;
-      position: relative;
-      overflow: auto;
-      background-position: center;
-      box-sizing: border-box;
-      border: 2px solid var(--translucent-bg);
-      border-collapse: collapse;
-      background-repeat: repeat;
-      margin-bottom: 20px;
-      height: 570px;
-  }
-  #prison:before{
-      content: ""; opacity: 0.9;
-      position: absolute; z-index: -1;
-      top: 0; bottom: 0; left: 0; right: 0;
-      background-image: url(graphics/scenery/options_dark.png);
-  }
-  /* prison class end */
-  
-  /* main pager */
-  #leftcontent{float:left}
-  #leftcontent .textbox{margin-bottom: 10px; width: 316px;}
-  
-  #sleepy{
-      position: absolute;
-      top: 15px;
-      left: 30px;
-      height: 20px;
-  }
-  
-  #sitenav{
-      text-align: center;
-  }
-  #sitenav a{
-      margin: 0px 2px 0px 2px;
-      padding: 0px 5px 0px 5px;
-      background-color: black;
-      color: white;   
-      text-decoration: none;
-  }
-  #sitenav a:hover{
-      background-color: #aa8728;
-  }
-  
-  #gazette {
-      text-align: left;
-      background-color: rgb(218, 218, 218);
-      background-position: center;
-      overflow-y: scroll;
-      position: absolute;
-      left: 0; top: 0;
-      padding: 0px 16px 8px 16px;
-      margin: 250px 0px 55px 10px;
-      width: 316px; height: 190px;
-      font-size: 12px;
-      line-height: 12px;
-      text-align: justify;
-      box-sizing: border-box;
-  }
-  #gazette h1{
-      border-bottom: #000 1px solid;
-      border-top: #000 1px solid;
-      font-size: 16px;
-      text-align: center;
-      line-height: 24px;
-  }
-  
-  #gazette h1 a{
-      color: unset;
-      text-decoration: none;
-  }
-  #gazette h1 a:hover{
-      background-color: #0000003f;
-  
-  }
-  
-  #gazette::selection, #gazette > *::selection { color: black; background-color: rgba(102, 102, 102, 0.473); }
-  
-  #led { width: 260px; }
-  #ViewPort3D{ width: 315px; height: 235px; position: absolute; right: 0; bottom: 0; margin: 0px 15px 55px 0px;
-      border: none; padding: 5px; box-sizing: border-box; background-image:  url('/graphics/scenery/hash.png');  }
-  /* main pager end */
-  
-  /* second pager */
-  #cboxEmbed { right: 0; top: 0; position: absolute; margin: 15px 15px 15px 0px; padding: 0; background-image: url(graphics/scenery/halloweenorange.png);}
-  #cboxEmbed a{ background-image: url(graphics/scenery/textbg.png); } #cboxEmbed a:hover{ background-image: unset; }
-  #cboxEmbed iframe{ margin-bottom: -4px;height: 225px; width: 316px; }
-  /* second pager end */
-  
-  /* classes start */
-  .hcenter{ position: absolute; left: 50%; transform: translateX(-50%) }
-  .vhcenter{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-  .bob { -webkit-transition: 0.05s; transition: 0.05s; }
-  .bob:hover { transform: translate(0px, -4px); -webkit-transition: 0.05s; transition: 0.05s; }
-  /* classes end */
-  
-  /* prison bottom start */
-  #pfpcontainer{
-      position: absolute;
-      padding-bottom:12px; bottom:0;
-  }
-  #pfp{
-      z-index: 2;
-      position:absolute;
-      width: 100px; height: 100px;
-      padding-bottom: 12px; bottom: 0;
-  }
-  #status {
-      display: flex;
-      overflow: auto;
-      background: white;
-      margin-left: 100px;
-      margin-right: 10px;
-      padding: 25px 10px 20px 10px;
-      min-width:140px;  max-width:216px;
-      min-height: 100px; max-height: 400px;
-      box-sizing: border-box;
-      justify-content: center; align-items: center;
-      background-image: url(graphics/scenery/textbg.png);
-  }
-  #statusBackground {
-      position: absolute; bottom: 0;
-      width: 216px; height: 100px;
-      margin: 0px 0px 12px 100px;
-      background-color: black;
-      background-image: url(graphics/scenery/static.gif);
-  }
-  #maxbar { width: 200px; visibility: 0; }
-  #rodent {
-      width: 34px;
-      top: 0; right: 0;
-      position: absolute;
-      transform: translate(-15px, -38px);
-  }
-  #statusTitle {
-      position: absolute;
-      margin-top: 3px; top:0;
-      padding: 0px 10px 0px 10px;
-      border-bottom: 1px solid #000;
-      min-width: 60px; max-width: 170; height: 19px;
-  }
-  #afterStatus {
-      background-color: rgba(109, 109, 109, 0.466);
-      position: absolute;
-      bottom: 0; left: 0;
-      margin: 0px 0px 12px 332px;
-  }
-  
-  #afterStatus > * { float: left;}
-  #selfButton {
-      padding-top: 5px;
-      border-radius: 2px;
-      font-size: small;
-      background-color: rgba(65, 65, 65, 0.589);
-      margin: 0px 0px 0px 0px;
-      position: absolute; bottom: 0; left:0;
-      width: 146px; height: 72px;
-  }
-  #selfButton .textbox{
-      margin: 0px;
-      width: 100%;
-      text-align: center;
-      position: absolute; bottom: 0;
-  }
-  
-  #buttonIMG{ height: 31px; }
-  #buttonIMG:hover{ cursor: pointer; }
-  #donut {
-      width: 100px;
-      position: absolute;
-      bottom: 0; left: 0;
-      margin: 0px 0px 95px 350px;
-  }
-  #buttonWall {
-      height: 36px;
-      display: flex;
-      overflow: hidden;
-      position: absolute;
-      align-items: center;
-      bottom: 0; right: 0;
-      padding: 4px;
-      margin: 0px 6px 6px 0px;
-  }
-  #buttonWall img { float:left; height: 31px; }
-  /* prison bottom end */
-  
-  /* context menu start */
-  .context_menu {
-      background: ghostwhite;;
-      position: absolute;
-      user-select: none;
-      color: black;
-      border: 1px black solid;
-      box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.733);
-  }
-  .context_menu .item { cursor: pointer; padding: 0 1rem; margin: 0;}
-  .context_menu .item:hover { background: black; color: ghostwhite;}
-  .context_menu ol, ul { list-style: none; padding: 0; margin: 0; }
-  /* context menu end */
-  
-  /* outside start */
-  
-  #date{ color: var(--site-fg); margin-top: 20px;}
-  #date::selection{ color: var(--site-bg); background: var(--site-fg); }
-  /* outside end */
-  
-  @-moz-keyframes bg-scroll {
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  @-o-keyframes bg-scroll {
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  @keyframes bg-scroll { 
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  
-  .rainbow-background:hover {
-      text-shadow: 0 0 3px black;
-      background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-      background-size: 1800% 1800%;
-      -webkit-animation: bg-scroll 5s infinite linear;
-      -o-animation: bg-scroll 5s infinite linear;
-      animation: bg-scroll 5s infinite linear;
-  }
-  
+  font-family: 'regular';
+  src: url('/doctype/DeterminationMonoWeb.ttf');
+}
+@font-face {
+    font-family: 'monospace';
+    src: url('/doctype/Profontwindows.ttf');
+}
+
+:root {
+    --site-bg: rgb(0, 0, 0);
+    --site-fg: white;
+    --translucent-bg: rgba(0, 0, 0, 0.63);
+}
+html{ font-family:'regular';}
+body {
+    line-height: 18px;
+    background-color: var(--site-bg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("graphics/scenery/nightsky.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+a{ 
+    color: #aa8728;
+}
+
+a:link { text-decoration: underline; }
+.textbox a:hover, #cboxEmbed a:hover { text-decoration: none; color: white; background-color: #aa8728;}
+::selection{ color: var(--site-fg); background: var(--site-bg); }
+/* html stuff end */
+
+/* site stuff start */
+#taskbar{ 
+    color:white;
+    line-height: 16px; width: 100vw;
+    position: fixed; display: flex; top: 0; left:0;
+    white-space:nowrap;
+    background-color: var(--translucent-bg);
+    padding: 3px 2px 4px 2px;
+}
+#fps { text-align: left; color: rgb(0, 224, 0); margin-left: 10px; }
+#exit { width: 70px; text-decoration: underline; color: inherit; margin-left: 4px; }
+#exit:hover { color: var(--translucent-bg); background-color: white; }
+#exit::selection{ color: var(--translucent-bg); background-color: white; }
+#jsclock { margin-right: 6px; width:70px; cursor: default; position: absolute; right: 0; }
+#calendar {
+    position: absolute;
+    right:0;
+    background-color: inherit;
+    padding: 4px;
+    margin: 30px 15px 0px 0px;
+    display: none;
+}
+input[type=checkbox].css-checkbox + label.css-label {
+	padding-left:20px;
+    margin-left: 5px;
+	height:15px; 
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	cursor:pointer;
+}
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-position: 0 -15px;
+}
+input[type=checkbox].css-checkbox {
+    position: absolute; 
+    visibility: hidden;
+    height:1px; width:1px;  
+}
+#mute_label{background-image:url(./graphics/arts/mute.png);}
+
+
+.textbox {
+    padding: 1px;
+    text-align: left;
+    background-color: white;
+    background-image: url('/graphics/scenery/textbg.png');
+}
+
+#checkers{
+    height: 40px;
+    background-color: orange;
+    background-image: url(/graphics/scenery/checkertranslucent.gif);
+    background-size: 60px;
+}
+
+.ctext{ text-align: center; }
+.unselectable::selection, label::selection, #barcode img::selection{ background: unset; color:unset;}
+.unselectable:hover{cursor: default;}
+/* site stuff end */
+
+/* prison class */
+#prison {
+    text-align: center;
+    width: 1202px;
+    padding: 10px;
+    position: relative;
+    overflow: auto;
+    background-position: center;
+    box-sizing: border-box;
+    border: 2px solid var(--translucent-bg);
+    border-collapse: collapse;
+    background-repeat: repeat;
+    margin-bottom: 20px;
+    height: 570px;
+}
+#prison:before{
+    content: ""; opacity: 0.9;
+    position: absolute; z-index: -1;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-image: url(graphics/scenery/options_dark.png);
+}
+/* prison class end */
+
+/* main pager */
+#leftcontent{float:left}
+#leftcontent .textbox{margin-bottom: 10px; width: 316px;}
+
+#sleepy{
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    height: 20px;
+}
+
+#sitenav{
+    text-align: center;
+}
+#sitenav a{
+    
+    margin: 0px 2px 0px 2px;
+    padding: 0px 5px 0px 5px;
+    background-color: black;
+    color: white;   
+    text-decoration: none;
+}
+#sitenav a:hover{
+    background-color: #aa8728;
+}
+
+#gazette {
+    text-align: left;
+    background-color: rgb(218, 218, 218);
+    background-position: center;
+    overflow-y: scroll;
+    position: absolute;
+    left: 0; top: 0;
+    padding: 0px 16px 8px 16px;
+    margin: 250px 0px 55px 10px;
+    width: 316px; height: 190px;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: justify;
+    box-sizing: border-box;
+}
+#gazette h1{
+    border-bottom: #000 1px solid;
+    border-top: #000 1px solid;
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+}
+
+#gazette h1 a{
+    color: unset;
+    text-decoration: none;
+}
+#gazette h1 a:hover{
+    background-color: #0000003f;
+
+}
+
+#gazette::selection, #gazette > *::selection { color: black; background-color: rgba(102, 102, 102, 0.473); }
+
+#led { width: 260px; }
+#ViewPort3D{ width: 315px; height: 235px; position: absolute; right: 0; bottom: 0; margin: 0px 15px 55px 0px;
+    border: none; padding: 5px; box-sizing: border-box; background-image:  url('/graphics/scenery/hash.png');  }
+/* main pager end */
+
+/* second pager */
+#cboxEmbed { right: 0; top: 0; position: absolute; margin: 15px 15px 15px 0px; padding: 0; background-image: url(graphics/scenery/halloweenorange.png);}
+#cboxEmbed a{ background-image: url(graphics/scenery/textbg.png); } #cboxEmbed a:hover{ background-image: unset; }
+#cboxEmbed iframe{ margin-bottom: -4px;height: 225px; width: 316px; }
+/* second pager end */
+
+/* classes start */
+.hcenter{ position: absolute; left: 50%; transform: translateX(-50%) }
+.vhcenter{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.bob { -webkit-transition: 0.05s; transition: 0.05s; }
+.bob:hover { transform: translate(0px, -4px); -webkit-transition: 0.05s; transition: 0.05s; }
+/* classes end */
+
+/* prison bottom start */
+#pfpcontainer{
+    position: absolute;
+    padding-bottom:12px; bottom:0;
+}
+#pfp{
+    z-index: 2;
+    position:absolute;
+    width: 100px; height: 100px;
+    padding-bottom: 12px; bottom: 0;
+}
+#status {
+    display: flex;
+    overflow: auto;
+    background: white;
+    margin-left: 100px;
+    margin-right: 10px;
+    padding: 25px 10px 20px 10px;
+    min-width:140px;  max-width:216px;
+    min-height: 100px; max-height: 400px;
+    box-sizing: border-box;
+    justify-content: center; align-items: center;
+    background-image: url(graphics/scenery/textbg.png);
+}
+#statusBackground {
+    position: absolute; bottom: 0;
+    width: 216px; height: 100px;
+    margin: 0px 0px 12px 100px;
+    background-color: black;
+    background-image: url(graphics/scenery/static.gif);
+}
+#maxbar { width: 200px; visibility: 0; }
+#rodent {
+    width: 34px;
+    top: 0; right: 0;
+    position: absolute;
+    transform: translate(-15px, -38px);
+}
+#statusTitle {
+    position: absolute;
+    margin-top: 3px; top:0;
+    padding: 0px 10px 0px 10px;
+    border-bottom: 1px solid #000;
+    min-width: 60px; max-width: 170; height: 19px;
+}
+#afterStatus {
+    background-color: rgba(109, 109, 109, 0.466);
+    position: absolute;
+    bottom: 0; left: 0;
+    margin: 0px 0px 12px 332px;
+}
+
+#afterStatus > * { float: left;}
+#selfButton {
+    padding-top: 5px;
+    border-radius: 2px;
+    font-size: small;
+    background-color: rgba(65, 65, 65, 0.589);
+    margin: 0px 0px 0px 0px;
+    position: absolute; bottom: 0; left:0;
+    width: 146px; height: 72px;
+}
+#selfButton .textbox{
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    position: absolute; bottom: 0;
+}
+
+#buttonIMG{ height: 31px; }
+#buttonIMG:hover{ cursor: pointer; }
+#donut {
+    width: 100px;
+    position: absolute;
+    bottom: 0; left: 0;
+    margin: 0px 0px 95px 350px;
+}
+#buttonWall {
+    height: 36px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: center;
+    bottom: 0; right: 0;
+    padding: 4px;
+    margin: 0px 6px 6px 0px;
+}
+#buttonWall img { float:left; height: 31px; }
+/* prison bottom end */
+
+/* context menu start */
+.context_menu {
+    background: ghostwhite;;
+    position: absolute;
+    user-select: none;
+    color: black;
+    border: 1px black solid;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.733);
+}
+.context_menu .item { cursor: pointer; padding: 0 1rem; margin: 0;}
+.context_menu .item:hover { background: black; color: ghostwhite;}
+.context_menu ol, ul { list-style: none; padding: 0; margin: 0; }
+/* context menu end */
+
+/* outside start */
+
+#date{ color: var(--site-fg); margin-top: 20px;}
+#date::selection{ color: var(--site-bg); background: var(--site-fg); }
+/* outside end */
+
+.rainbow-background:hover {
+    background-image: url("/graphics/scenery/linea.gif");
+    text-shadow: 0 0 3px black;
+    background-size: 150%;
+}
