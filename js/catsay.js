@@ -30,7 +30,7 @@ function catsay(element, comment, title = default_title, maxWidth = false) {
 // add catsays
 catsay(document.getElementById("pfp"), "Hii!!");
 catsay(document.getElementById("exit"), "Baii!!<br>Take care!!");
-catsay(document.getElementById("buttonWall"), "Go and fetch the little trinkets hidden in these sites!");
+catsay(document.getElementById("buttonWall"), "Also check out these very cool sites");
 catsay(document.getElementById("donut"), '"it reeks of charcoal"');
 catsay(document.getElementById("cboxEmbed"), "Feel free to post your thoughts");
 
