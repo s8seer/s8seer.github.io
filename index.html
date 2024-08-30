@@ -22,23 +22,27 @@
 
 <body>
     <div id="taskbar">
-        
-        <a href="https://github.com/s8seer/s8seer.github.io" class="bar" id="exit">[ &lt;EXIT ]</a>
+        <a href="https://github.com/s8seer/s8seer.github.io" class="bar desktopOnly" id="exit">[ &lt;EXIT ]</a>
         <span id="fps" class="unselectable">0</span>
         <div  id="barcode" class="hcenter"></div>
-        <div id="jsclock" class="bar unselectable">00:00:00</div> <div id="calendar">day/month/year</div>
+        <div id="jsclock" class="bar unselectable desktopOnly">00:00:00</div> <div id="calendar">day/month/year</div>
     </div>
 
     <div id="daddydiv" class="vhcenter" style="text-align: center;">
+        <div id="visitor" class="desktopOnly">
+            <span class="unselectable">Latest Visitor</span>
+            <img src="/graphics/arts/visitor.gif">
+        </div>
         <div id="prison">
+            
             <div id="leftcontent"><br>
                 <img id="sleepy" src="/graphics/arts/sleepingcat.gif" alt="sleepingcat.gif">
                 <a href="https://s8seer.github.io/"><img id="led" src="./graphics/arts/led_sign.gif" alt="led_sign.gif"></a>
                 <div class="textbox" id="sitenav">
                     <div class="ctext">                                                        sitenav:                     </div>
                     <a href="/projects">                                                       > projects                   </a>
-                    <a href="/aboutme.html">                                                   > about                      </a>
                     <a onclick="toggledisplay(); event.preventDefault();" href="./shell.html"> > shell                      </a>
+                    <a href="https://my.cbox.ws/s8seer" onclick="window.open('https\:\/\/my.cbox.ws/s8seer', 'win', 'width=600,height=600'); event.preventDefault();"> > cbox </a>
                     <a href="/atom.xml">                                                       > rss                        </a>
                 </div>
                 <div class="textbox">
@@ -53,7 +57,6 @@
                         > windows 11 dotfiles
                     </a>
                     <br>
-                    
                 </div>
                 <div class="textbox">
                     <a href="https://github.com/s8seer/s8seer.github.io" class="rainbow-background">
@@ -65,6 +68,7 @@
                 
             </div>
 
+            <div class="desktopOnly" style="position: absolute; right: 20px; object-fit: cover; height: 255px; width: 310px; background-repeat: repeat; background-image: url('/graphics/scenery/sunset.png'); background-position: 0px -20px;" src=""></div>
             <div id="rightcontent"><iframe src="3d.html" id="ViewPort3D"></iframe></div>
 
             <div id="gazette"></div>
@@ -79,19 +83,16 @@
                 </div>
             </div>
             
-            <a href="3d.html"><img id="donut" src="./graphics/arts/spin.gif" alt="spin.gif"></a>
+            <img id="donut" class="mobileOnly" src="./graphics/arts/spin.gif" alt="spin.gif">
 
             <div id="afterStatus">
-                <div id="selfButton">
+                <div id="selfButton" class="desktopOnly">
                         <img id="buttonIMG" src="./graphics/hots/button_2.png" alt="button.png">
-                        <br><p class="textbox">Here's  my button <span id="buttonIndex">0/0</span> (click to change)</p>
+                        <br><p class="textbox desktopOnly">Here's  my button <span id="buttonIndex">0/0</span> (click to change)</p>
                 </div>
             </div>                   
-
-            <div id="cboxEmbed"><a href="https://my.cbox.ws/s8seer" onclick="window.open('https\://my.cbox.ws/s8seer', 'win', 'width=600,height=600'); event.preventDefault();">cbox</a><br><iframe src="https://www5.cbox.ws/box/?boxid=948507&boxtag=bBSbKT" allowtransparency="yes" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe></div>
-
-            <div id="buttonWall">
-                <span class="" href="">                                         <img src="graphics/hots/btn_placeholder.gif" alt="placeholder_button.png">  </span>
+            <div id="buttonWall" class="desktopOnly">
+                <span class="" href="">                                         <img src="graphics/hots/krisbtn.png" alt="placeholder_button.png">  </span>
                 <a class="bob" href="https://leviathren.neocities.org/home">    <img src="graphics/hots/btn_leviathren.gif"  alt="leviathren_button.gif">   </a>
                 <a class="bob" href="https://parkaction.neocities.org/">        <img src="graphics/hots/btn_parkaction.gif"  alt="parkaction_button.gif">   </a>
                 <a class="bob" href="https://freckleskies.neocities.org/home/"> <img src="graphics/hots/btn_skybutton.gif"   alt="freckleskies_button.gif"> </a>
