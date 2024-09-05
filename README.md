@@ -4,6 +4,5 @@
 [![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://s8seer.github.io/atom.xml)
 
 to do:
-add readme    
-![preview.webp](https://neocities.org/site_screenshots/10/09/s8seer/index.html.540x405.webp)
+add readme
 
