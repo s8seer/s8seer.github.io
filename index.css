@@ -120,13 +120,6 @@
   #leftcontent{float:left}
   #leftcontent .textbox{margin-bottom: 10px; width: 314px;}
   
-  #sleepy{
-      position: absolute;
-      top: 15px;
-      left: 30px;
-      height: 20px;
-  }
-  
   #sitenav{
       text-align: center;
   }
