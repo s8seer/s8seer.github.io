@@ -24,17 +24,26 @@ function explode(){
     play_sound(`./graphics/audio/${file}`)
     
     var img = new Image();
-    img.src = './graphics/arts/explode.gif';
+    // Since browsers cache images, refreshing the page continues the gif from where it left of
+    // Adding a random number after the url makes the browser reload the image every time
+    img.src = `./graphics/arts/explode.gif?${Math.floor(Math.random()*9999)}`;
     img.style.height = '120px';
     img.style.position = 'absolute';
     img.style.left = 40+'px'; img.style.top = '-60px';
     buttonImage.parentNode.appendChild(img);
-    setTimeout(function(){ img.style.visibility = 'hidden'; }, 2000);
+    setTimeout(function(){ img.style.visibility = 'hidden'; }, 1700);
 }
 
-function cycleButtons(buttons) {
+function cycleButtons(buttons, button = null) {
+    
+    if (!(button == null)){
+        buttonImage.src = imageDir + buttons[button];
+        return;
+    }
+    
+    // Explode after 15 clicks
     if (button_index == buttons.length) { button_index = 0; };
-    if (button_clicks > 15) { 
+    if (button_clicks > 10){
         const canvas = document.createElement('canvas')
         canvas.width = 88; canvas.height = 31;
         buttonImage.removeAttribute('id');
@@ -43,12 +52,30 @@ function cycleButtons(buttons) {
         buttonImage.onclick = function() {};
         explode();
         return;
-    } else {button_clicks++}
-    buttonIndex.innerHTML = `${button_index+1}/${buttons.length}`;
-    buttonImage.src = imageDir + buttons[button_index++];
+    }
+    button_clicks++;
+    buttonIndex.innerHTML = `${button_index+1}/${buttons.length}`
+    buttonImage.src = imageDir + buttons[button_index++]
+
+    // if (button_index == buttons.length) { button_index = 0; };
+    // if (button_clicks > 15) { 
+    //     const canvas = document.createElement('canvas')
+    //     canvas.width = 88; canvas.height = 31;
+    //     buttonImage.removeAttribute('id');
+    //     buttonIndex.innerHTML = `:(&nbsp;`;
+    //     buttonImage.src = canvas.toDataURL();
+    //     buttonImage.onclick = function() {};
+    //     explode();
+    //     return;
+    // } else {button_clicks++}
+    // buttonIndex.innerHTML = `${button_index+1}/${buttons.length}`;
+    // buttonImage.src = imageDir + buttons[button_index++];
 };
 function loadButtons(buttons) {
-    cycleButtons(buttons);
+    let button = Math.floor(Math.random() * buttons.length)
+    buttonIndex.innerHTML = `${button+1}/${buttons.length}`;
+    button_index = button+1;
+    cycleButtons(buttons, button);
     buttonImage.onclick = function() { 
         play_sound('./graphics/audio/click_stereo.ogg');
         cycleButtons(buttons);
@@ -56,16 +83,20 @@ function loadButtons(buttons) {
 };
 
 // width: 2, height: 20, margin: 5
+// https://barcode-maker.com/en/Code128
+// remove 10 pixels from width and height if margins are too large
 function barcode(element, pics) { 
-    var a = Math.floor(Math.random() * pics.length); var img = pics[a];
+    var a = Math.floor(Math.random() * pics.length);
+    var img = pics[a];
     element.innerHTML = `<img src="${img}" height="16px">`; 
 };
 
 // call the functions
 loadButtons(
     [ 
-        'button_2.png',
+        'button_2.png', // button 2 is the newest so it should be first on the list
         'button_1.png',
+        
     ]
 );
 barcode( document.getElementById('barcode'),
