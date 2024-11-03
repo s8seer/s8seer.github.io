@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> model showcase </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+            body {
+                margin: 0;
+                color: black;
+				
+                font-family: Monospace;
+                font-size: 13px; line-height: 24px;
+                overscroll-behavior: none;
+            }
+            a { color: rgb(197, 131, 9); text-decoration: none; }
+            a:hover { text-decoration: underline; }            
+            #info {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                text-align: center;
+                z-index: 1; /* TODO Solve this in HTML */
+                -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; pointer-events: none;
+            }
+            a, button, input, select { pointer-events: auto; }
+        </style>
+	</head>
+
+	<body>
+		<!-- <div id="info"><a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - GLTFLoader<br /></div> -->
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://s8seer.github.io/three.js/three.module.js",
+					"three/addons/": "https://s8seer.github.io/three.js/jsm/",
+					"local": "./"
+				}
+			}
+		</script>
+
+		<script type="module">
+			import * as THREE from 'three';
+
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+			import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+			import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
+
+			import Stats from 'three/addons/libs/stats.module.js';
+
+			let particleLight;
+			let container, stats;
+			let group, camera, scene, controls, renderer;
+
+			let has_been_touched = false;
+			let enough_time_has_passed = false;
+
+			// Wait 2 minutes
+			setTimeout(function(){ enough_time_has_passed = true}, 1000 * 60 * 2);
+			
+			const SHADER = 'cartoon';
+			// 'cartoon', 'none'
+
+			renderer = new THREE.WebGLRenderer( { antialias: false, alpha: true } );
+
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			if (!(urlParams.get('background') == "None")){
+				document.getElementsByTagName("body")[0].style.backgroundColor = "black";
+			}
+
+			// vibrant
+			//renderer.toneMapping = THREE.ACESFilmicToneMapping
+			//renderer.toneMapping = THREE.CineonToneMapping 
+
+			// realistic?
+			//renderer.toneMapping = THREE.ReinhardToneMapping
+			//renderer.toneMapping = THREE.AgXToneMapping
+
+			renderer.toneMappingExposure = 1
+			let effect = new OutlineEffect( renderer, {defaultThickness: 0.014} );
+			effect.alpha = 0;
+			effect.setSize(200, 200)
+			init();
+			animate();
+
+			function init() {
+				camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 0.1, 100 );
+				camera.position.set( 1, 2, 5 );
+
+				group = new THREE.Group();
+				scene = new THREE.Scene();
+				// scene.background = new THREE.Color( "#423E3A" );
+
+				const pointLight1 = new THREE.PointLight( "#FFF6E7", 1.8, 0, 0 );
+				pointLight1.position.set(  200, 180, 200 ); 
+				pointLight1.castShadow = true;
+				scene.add( pointLight1 );
+				
+				const dracoLoader = new DRACOLoader();
+				dracoLoader.setDecoderPath( 'https://s8seer.github.io/three.js/jsm/libs/draco/gltf/' );
+				const colors = new Uint8Array( 2 + 2 );
+
+				for ( let c = 0; c <= colors.length; c ++ ) {
+					colors[ c ] = ( c / colors.length ) * 256;
+				}
+
+				const gradientMap = new THREE.DataTexture( colors, colors.length, 1, THREE.RedFormat );
+				gradientMap.needsUpdate = true;
+
+				const loader = new GLTFLoader();
+				loader.setDRACOLoader( dracoLoader );
+				loader.setPath( 'models/' );
+				loader.load( 'cat.glb', function ( gltf ) {
+					const model = gltf.scene;
+					if (SHADER == 'cartoon'){
+						model.traverse((o) => {
+							if (o.isMesh) {
+								let r = o.material.color.r;
+								let g = o.material.color.g;
+								let b = o.material.color.b;
+
+								const modelColor = new THREE.Color().setRGB( r, g, b ).multiplyScalar( 1 );
+								o.material = new THREE.MeshToonMaterial( {color: modelColor } );
+
+								// Meshes of objects that shouldn't have an outline
+								if( ["Eyeball", "Eye_White", "Hole"].includes(o.name) ){
+									o.material.userData.outlineParameters = {thickness: 0}
+								}
+							}
+						});
+					}
+
+					const scale = 0.85;
+					model.scale.set(scale,scale,scale);
+					
+					scene.add( model );
+					// horizontal
+                    model.position.x = 0;
+					// vertical
+                    model.position.y = 1.1;
+					model.rotation.y = 1.5;
+					group.add( model );
+					// the other 3d dimension
+                    scene.position.z = 0;
+					render();
+				} );
+
+				scene.add( group );
+
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				
+				renderer.domElement.style.cursor = "grab";
+				renderer.domElement.addEventListener("mousedown", function(e){ if(e.which==1){renderer.domElement.style.cursor = "grabbing";}; has_been_touched = true; });
+				renderer.domElement.addEventListener("mouseup", function(e){ if(e.which==1){renderer.domElement.style.cursor = "grab";}; });
+				document.body.appendChild( renderer.domElement );
+
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.enablePan = false;
+				controls.enableZoom = false;
+				controls.addEventListener( 'change', render );
+				controls.target.set( 0, 2, 0 );
+				controls.update();
+
+				window.addEventListener( 'resize', onWindowResize );				
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				render();
+
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+				 
+				// Turn the model to the viewer after enough time passes
+				// Ok actually don't do that it's kinda creepy
+				// if (scene.rotation.y <= 0.28 && !has_been_touched && enough_time_has_passed){
+				// 	scene.rotation.y += 0.0005;
+				// }
+				
+				render();
+			}
+
+			function render() {
+
+				//renderer.render( scene, camera );
+				effect.render( scene, camera );
+
+			}
+		</script>
+
+	</body>
+</html>
