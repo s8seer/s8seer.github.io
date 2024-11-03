@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <!-- hello beep boop -->
+<head>
+    <title>weird little site</title>
+    <link rel="icon" href="graphics/arts/webhome.png">
+
+    <link rel="stylesheet" href="index.css" >
+    <link rel="stylesheet" href="index_mobile.css" >
+    <link rel="stylesheet" href="shell.css"/>
+    
+    <meta name="description" content="">
+    <meta http-equiv="content-type" content="text/html;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noarchive, noimageindex">
+    
+    <link rel="preload" href="/graphics/scenery/nightsky.png" as="image" type="image/png">
+    <link rel="preload" href="/graphics/scenery/options_dark.png" as="image" type="image/png">
+    
+    <link rel="prefetch" href="/graphics/hots/button_1.png" as="image" type="image/png">
+    <link rel="preload" href="/graphics/hots/button_2.png" as="image" type="image/png">
+
+    <link rel="prefetch" href='/atom.xml' as="fetch">
+
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("graphics/scenery/nightsky.png");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="taskbar">
+        <a href="https://github.com/s8seer/s8seer.github.io" class="bar desktopOnly" id="exit">[ &lt;EXIT ]</a>
+        <span id="fps" class="unselectable">0</span>
+        <div  id="barcode" class="hcenter"></div>
+        <div id="jsclock" class="bar unselectable desktopOnly">00:00:00</div> <div id="calendar">day/month/year</div>
+    </div>
+
+    <div id="daddydiv" class="vhcenter" style="text-align: center;">
+        <div id="leftpanel">
+            <div id="visitor" class="desktopOnly">
+                <span class="unselectable">Latest Visitor</span>
+                <img src="/graphics/arts/visitor.gif">
+            </div>
+            
+            <!-- Contents of this div are added via js -->
+            <div id="updates"></div>
+        </div>
+        
+        <div id="prison">
+            <div id="leftcontent">
+                <a href="https://s8seer.github.io/" id="siteheader">weird little site</a><br><br>
+                <div class="textbox" id="sitenav">
+                    <div class="ctext"> site navigation: </div>
+                    <!-- Disabled because deleted -->
+                    <a onclick="event.preventDefault();" href=".">
+                        <s>
+                            > projects
+                        </s>
+                    </a>
+
+                    <a onclick="toggledisplay(); event.preventDefault();" href="./shell.html">
+                        > shell
+                    </a>
+
+                    <a href="https://my.cbox.ws/s8seer" onclick="window.open('https\:\/\/my.cbox.ws/s8seer', 'win', 'width=600,height=600'); event.preventDefault();">
+                        > cbox 
+                    </a>
+
+                    <a href="/atom.xml">
+                        > rss
+                    </a>
+
+                    <!-- <a href="/gazette.html"> > blog </a> -->
+
+                </div>
+                <div class="textbox">
+                    <div class="ctext">
+                        repositories:
+                    </div>
+                    <a href="https://github.com/s8seer/dotfiles">
+                        > arch linux dotfiles
+                    </a>
+                    <br>
+                    <a href="https://github.com/s8seer/win11dotfiles">
+                        > windows 11 dotfiles
+                    </a>
+                    <br>
+                </div>
+                <div class="textbox">
+                    <a href="https://github.com/s8seer/s8seer.github.io" class="rainbow-background">
+                        > this webpage is open source 
+                    </a><br>
+                </div>
+                <div id="checkers" class="desktopOnly">
+                </div>
+                
+            </div>
+
+            <div id="leftpanel">
+                <div id="visitor" class="desktopOnly">
+                    <span class="unselectable">Latest Visitor</span>
+                    <img src="/graphics/arts/visitor.gif">
+                </div>
+                
+                <!-- Contents of this div are added via js -->
+                <div id="updates"></div>
+            </div>
+
+            
+            <iframe src="3d.html?background=None" id="ViewPort3D"></iframe>
+            
+            <!-- Contents of this div are added via js -->
+            <div id="articledisplay" class="desktopOnly"></div>
+            
+            <div id="statusBackground"></div>
+            <div id="pfpcontainer">
+                <div id="pfp"><a href="https://github.com/s8seer"><img src="/graphics/arts/githubpfp.jpg" width="100px" height="100px" alt="githubpfp.png"></a></div>
+                <div id="status"><span id="statusTitle">status:</span>
+                    <span id="statusText">
+                        i need to take a nap *sleeps for 14 hours straight* 
+                    </span>
+                </div>
+            </div>
+            
+            <img id="donut" class="mobileOnly" src="./graphics/arts/spin.gif" alt="spin.gif">
+
+            <div id="afterStatus">
+                <div id="selfButton" class="desktopOnly">
+                        <img id="buttonIMG" src="./graphics/hots/button_2.png" alt="button.png">
+                        <br><p class="textbox desktopOnly">Here's  my button <span id="buttonIndex">0/0</span> (click to change)</p>
+                </div>
+            </div>                   
+            <div id="buttonWall" class="desktopOnly">
+                <span class="" href="">                                         <img src="graphics/hots/krisbtn.png"           alt="placeholder_button.png">  </span>
+                <a class="bob" href="https://leviathren.neocities.org/home">    <img src="graphics/hots/btn_leviathren.gif"    alt="leviathren_button.gif">   </a>
+                <a class="bob" href="https://parkaction.neocities.org/">        <img src="graphics/hots/buttons/pa_button.gif" alt="parkaction_button.gif">   </a>
+                <a class="bob" href="https://freckleskies.neocities.org/home/"> <img src="graphics/hots/btn_skybutton.gif"     alt="freckleskies_button.gif"> </a>
+                <a class="bob" href="https://olliveen.neocities.org/">          <img src="graphics/hots/btn_olliveen.gif"      alt="olliveen_button.gif">     </a>
+                <a class="bob" href="https://phrogee.neocities.org/main">       <img src="graphics/hots/btn_phrogee.gif"       alt="phrogee_button.gif">      </a>
+                <a class="bob" href="https://kyomakus.online/">                 <img src="graphics/hots/btn_kyoonline.gif"     alt="kyomaku_button.gif">      </a>
+                <a class="bob" href="https://corru.observer/">                  <img src="graphics/hots/btn_corru.gif"         alt="corru_button.gif">        </a>
+            </div>
+        </div>
+        <div id="date">2023-2024</div>
+        
+    </div>
+
+    <!-- scripts -->
+    <div name="console" id="terminal-container-window"><div id="terminal-title"></div><div id="terminal"><form id="shellForm"><p id="shellParagraph"><input id="shellInput" autocomplete=off></p></form></div></div>
+    <script src="./js/clock.js"></script> 
+    <script src="./js/catsay.js"></script>
+    <script src="./js/fps.js"></script>
+    <script src="./js/updates.js"></script>
+    <script src="./js/shell.js"></script><script>dragElement(terminal_window, document.getElementById("terminal-title"));</script>
+    <script src="./js/mediums.js"></script>
+    <!-- <script src="./js/scanline.js"></script> -->
+</body>
+</html>
