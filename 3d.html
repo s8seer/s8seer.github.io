@@ -50,6 +50,11 @@
 			import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 			import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
 
+			// Import effect composer
+			import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'; import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'; import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+			import { BloomPass } from 'three/addons/postprocessing/BloomPass.js'; 
+			
+
 			import Stats from 'three/addons/libs/stats.module.js';
 
 			let particleLight;
@@ -65,14 +70,22 @@
 			const SHADER = 'cartoon';
 			// 'cartoon', 'none'
 
-			renderer = new THREE.WebGLRenderer( { antialias: false, alpha: true } );
+			renderer = new THREE.WebGLRenderer( 
+				// { antialias: true, alpha: true } 
+			);
+
+			renderer.autoClear=false;
+			
+			var width = window.innerWidth || 1;
+			var height = window.innerHeight || 1;
+			var parameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBAFormat, stencilBuffer: false }
+			var renderTarget = new THREE.WebGLRenderTarget( window.innerWidth, window.innerHeight, parameters );
+			const composer = new EffectComposer( renderer, renderTarget );
 
 			const queryString = window.location.search;
 			const urlParams = new URLSearchParams(queryString);
-			if (!(urlParams.get('background') == "None")){
-				document.getElementsByTagName("body")[0].style.backgroundColor = "black";
-			}
-
+			if (!(urlParams.get('background') == "None")){ document.getElementsByTagName("body")[0].style.backgroundColor = "black"; }
+			 
 			// vibrant
 			//renderer.toneMapping = THREE.ACESFilmicToneMapping
 			//renderer.toneMapping = THREE.CineonToneMapping 
@@ -83,22 +96,41 @@
 
 			renderer.toneMappingExposure = 1
 			let effect = new OutlineEffect( renderer, {defaultThickness: 0.014} );
-			effect.alpha = 0;
-			effect.setSize(200, 200)
+			effect.alpha = 0; effect.setSize(200, 200)
+			
 			init();
 			animate();
 
 			function init() {
 				camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 0.1, 100 );
+
 				camera.position.set( 1, 2, 5 );
 
 				group = new THREE.Group();
 				scene = new THREE.Scene();
 				// scene.background = new THREE.Color( "#423E3A" );
 
+				const renderPass = new RenderPass( scene, camera ); 
+				// This gives a warning
+				renderPass.clearColor = new THREE.Color( 0, 0, 0 );
+				renderPass.clearAlpha = 0;
+
+				// Things gets interesting if u set this to false
+				// renderPass.clear = false;
+
+				composer.addPass( renderPass ); 
+
+				const BloomShader = new BloomPass(0.5, 25, 4); 
+
+				composer.addPass(BloomShader)
+
+				const outputPass = new OutputPass(); 
+				composer.addPass( outputPass );
+
 				const pointLight1 = new THREE.PointLight( "#FFF6E7", 1.8, 0, 0 );
 				pointLight1.position.set(  200, 180, 200 ); 
 				pointLight1.castShadow = true;
+				
 				scene.add( pointLight1 );
 				
 				const dracoLoader = new DRACOLoader();
@@ -114,10 +146,10 @@
 
 				const loader = new GLTFLoader();
 				loader.setDRACOLoader( dracoLoader );
-				loader.setPath( 'models/' );
-				loader.load( 'cat.glb', function ( gltf ) {
+				loader.setPath( '/models/' );
+				loader.load( 'cult_of_the_lamb__aym.glb', function ( gltf ) {
 					const model = gltf.scene;
-					if (SHADER == 'cartoon'){
+					if (false){
 						model.traverse((o) => {
 							if (o.isMesh) {
 								let r = o.material.color.r;
@@ -135,18 +167,21 @@
 						});
 					}
 
-					const scale = 0.85;
+					const scale = 1.85;
 					model.scale.set(scale,scale,scale);
 					
 					scene.add( model );
 					// horizontal
-                    model.position.x = 0;
+                    model.position.x = 0.4;
 					// vertical
-                    model.position.y = 1.1;
-					model.rotation.y = 1.5;
+                    model.position.y = -1.17;
+					model.rotation.y = 0.25;
+					
 					group.add( model );
-					// the other 3d dimension
+					
+					// forwards and backwards
                     scene.position.z = 0;
+
 					render();
 				} );
 
@@ -166,6 +201,9 @@
 				controls.addEventListener( 'change', render );
 				controls.target.set( 0, 2, 0 );
 				controls.update();
+				
+				camera.position.y = 0.5;
+				camera.lookAt( 0, 2 ,0  );
 
 				window.addEventListener( 'resize', onWindowResize );				
 			}
@@ -175,26 +213,24 @@
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
+				composer.setSize( window.innerWidth, window.innerHeight );
 				render();
 
 			}
 
 			function animate() {
 				requestAnimationFrame( animate );
-				 
-				// Turn the model to the viewer after enough time passes
-				// Ok actually don't do that it's kinda creepy
-				// if (scene.rotation.y <= 0.28 && !has_been_touched && enough_time_has_passed){
-				// 	scene.rotation.y += 0.0005;
-				// }
+				// composer.render();
 				
 				render();
 			}
 
 			function render() {
-
-				//renderer.render( scene, camera );
-				effect.render( scene, camera );
+				
+				renderer.render( scene, camera );
+				renderer.clearDepth(); 
+				composer.render()
+				//effect.render( scene, camera );
 
 			}
 		</script>
