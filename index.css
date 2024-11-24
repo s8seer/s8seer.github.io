@@ -216,9 +216,9 @@ a:link { text-decoration: underline; }
 }
 
 #ViewPort3D{ 
-    image-rendering: pixelated;
-    width: 170px; height: 150px; position: absolute; right: 0; bottom: 0; 
+    width: 140px; height: 165px; position: absolute; right: 0; bottom: 0; 
     margin-right: 330px;
+    /* background-color: #3d3d3d3d; outline: 1px solid rgba(255, 255, 255, 0.356); */
     margin-bottom: 50px;
     border: none; padding: 5px; box-sizing: border-box;
 }
