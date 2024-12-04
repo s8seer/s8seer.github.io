@@ -76,7 +76,7 @@ let library = {
 }
 
 let very_recents = ['Slay the Priness', 'Guilty Gear']
-let recents = ['Slay the Priness', 'Guilty Gear']
+let recents = ['Slay the Priness', 'Guilty Gear', 'Cult of the Lamb']
 
 // Media to not display
 let hidden = []
