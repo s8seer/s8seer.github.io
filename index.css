@@ -93,7 +93,7 @@ a:link { text-decoration: underline; }
     background-color: rgba(25, 25, 25, 0.4);    
 }
 #prison:before{
-    background-position: center;
+    background-position: top;
     content: ""; opacity: 0.9;
     position: absolute; z-index: -1;
     top: 0; bottom: 0; left: 0; right: 0;
