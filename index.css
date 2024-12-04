@@ -85,17 +85,19 @@ a:link { text-decoration: underline; }
     overflow: auto;
     background-position: center;
     box-sizing: border-box;
-    border: 2px solid var(--translucent-bg);
+    border: 5px solid rgba(32, 32, 32, 0.514);
     border-collapse: collapse;
     background-repeat: repeat;
     margin-bottom: 20px;
     height: 570px;
+    background-color: rgba(25, 25, 25, 0.4);    
 }
 #prison:before{
+    background-position: center;
     content: ""; opacity: 0.9;
     position: absolute; z-index: -1;
     top: 0; bottom: 0; left: 0; right: 0;
-    background-image: url(graphics/scenery/options_dark.png);
+    background-image: url("/graphics/scenery/options_dark.png");
 }
   
 #navigator{
