@@ -59,6 +59,10 @@ body{
     margin-top: 10px;
 }
 
+.pointer_normal:hover{
+    cursor: default;
+}
+
 #badge{
     font-size: 12px;
     font-family: 'Motiva Sans';
