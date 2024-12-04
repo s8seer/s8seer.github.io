@@ -90,6 +90,7 @@ a:link { text-decoration: underline; }
     background-repeat: repeat;
     margin-bottom: 20px;
     height: 570px;
+    border-radius: 2px;
     background-color: rgba(25, 25, 25, 0.4);    
 }
 #prison:before{
