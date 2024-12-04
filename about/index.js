@@ -163,8 +163,8 @@ function load_media_recents(){
         MEDIA_CONTAINER.innerHTML += `
             <div class="media_capsule">
                 <div class="topside">
-                    <a href="${array_item['Url']}"><img src="${array_item['Capsule']}"></a>
-                    <a href="${array_item['Url']}" class="media_title">${array_item['Title']}</a>
+                    <a class="pointer_normal"><img src="${array_item['Capsule']}"></a>
+                    <a class="media_title pointer_normal">${array_item['Title']}</a>
                 </div>
                 <div style="clear: both;"></div>
                 <div class="underside">
