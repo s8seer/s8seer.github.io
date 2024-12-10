@@ -1,0 +1,248 @@
+
+@font-face {
+	font-family: 'Motiva Sans';
+	src: url('/about/assets/MotivaSans-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Motiva Sans Light';
+	src: url('/about/assets/MotivaSans-Light.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Motiva Sans Bold';
+	src: url('/about/assets/MotivaSans-Bold.ttf') format('truetype');
+}
+
+:root{
+    --text-color: rgb(221, 221, 221);
+    --text-white: rgb(221, 221, 221);
+    --text-grey: rgb(134, 134, 134);
+    --navbar-color: rgb(53, 125, 207);
+}
+
+body{
+    font-family: 'Motiva Sans Light';
+    background-color: #2c2e30;
+    
+    background-position:top; 
+    background-repeat: no-repeat;
+}
+#main{ 
+    top: -10px;
+    box-sizing: border-box;
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1d1d1dee;
+    width: 976px;
+    height: auto;
+    padding: 15px;
+    padding-top: 40px;
+    color: var(--text-white);
+}
+
+#pfp{
+    border: 2px solid rgb(80, 80, 80);
+    box-sizing: border-box;
+    margin-left: 10px;
+    width: 64px;
+    height: 64px;
+    float: left
+}
+
+#about{
+    float: left;
+    margin-left: 35px;
+}
+
+#about .smaller{
+    margin-left: 0px;
+}
+
+#about h2 span{
+    margin-left: 4px;
+    font-size: 16px;
+}
+
+#about h2{
+    margin: 0;
+    margin-top: 2px;
+    font-weight: normal;
+}
+
+#about p{
+    font-size: 14px;
+    color: lightgray;
+    margin-top: -0px;
+}
+
+#bottom{
+    float: left;
+    margin-top: 30px;
+    width: 100%;
+}
+
+#bottom .element{
+    border-radius: 2px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(44, 44, 44);
+}
+
+a{ 
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.greyed{
+    color: var(--text-grey)
+}
+
+a:hover{ 
+    text-decoration: underline;
+}
+
+.media_display{
+    padding: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgb(19, 19, 19);
+    background-size: cover;
+    background-position: center;
+    height: 138px;
+    margin-top: 16px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 30px -10px rgb(0, 0, 0);
+}
+
+.media_display img{
+    width: 259px;
+    height: 121px;
+    margin-right: 10px;
+}
+.media_display .details_button{
+    width: 34px;
+    height: 18px;
+    background-color: rgba(58,64,74,.5);
+    border-radius: 2px;
+    float: right;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: center;
+}
+.details_button:hover{
+    background-color: rgb(58,64,74);
+}
+.media_display .details_button svg{
+    padding: 0px;
+    height: 18px;
+    font-size: 13px;
+}
+
+.media_display p{
+    margin-top: 2px;
+    font-size: 12px;
+}
+
+.media_title{
+    font-family: 'Motiva Sans';
+    font-size: 1.064rem;
+    color: #ebebeb;
+}
+
+.media_display a{
+    float: left;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+#return_button{
+    background-color: rgb(54, 54, 54);
+    left: -60px;
+    top: 40px;
+    width: 40px;
+    text-decoration: none;
+    padding-top: 6px;
+    padding-left: 12px;
+    height: 40px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#return_button:hover{
+    background-color: rgb(75, 75, 75);
+    
+}
+
+#navbar{
+    
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+}
+#navbar a{
+    text-decoration: none;
+    background-color: rgb(76, 80, 87);
+    padding: 4px;
+    margin-bottom: -16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px 3px 0px 0px;
+    padding-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    z-index: 0;
+    height: 30px;
+}
+
+#navbar .selected{
+    background-color: var(--navbar-color);
+    padding: 8px;
+    border-radius: 3px 3px 0px 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 38px;
+    bottom: 2px;
+    padding-bottom: 0px;
+}
+
+#navbar #wishlist{
+    float: right;
+    border-radius: 2px;
+}
+
+#navbar a:hover{
+    background-color: rgb(58, 76, 107);
+}
+
+#navbar a.selected:hover{
+    background-color: var(--navbar-color);
+}
+
+#navbarunderside{
+    background-color: var(--navbar-color);
+    height: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 4px;
+    z-index: 1;
+}
+
+#media_input{
+    font-family: 'Motiva Sans';
+    font-size: 12px;
+    background-color: rgb(66, 66, 66);
+    border: 0px;
+    outline: 0px;
+    padding: 6px;
+    color: var(--text-color)
+}
+#media_input::placeholder{
+    color: gray;
+    font-style: italic;
+}
