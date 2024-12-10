@@ -85,12 +85,12 @@ a:link { text-decoration: underline; }
     overflow: auto;
     background-position: center;
     box-sizing: border-box;
-    border: 5px solid rgba(32, 32, 32, 0.514);
+    border: 8px solid rgba(32, 32, 32, 0.5);
+    border-radius: 6px;
     border-collapse: collapse;
     background-repeat: repeat;
     margin-bottom: 20px;
     height: 570px;
-    border-radius: 2px;
     background-color: rgba(25, 25, 25, 0.4);    
 }
 #prison:before{
