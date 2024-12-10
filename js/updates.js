@@ -45,7 +45,7 @@ fetch(FEED_URL)
         let html = `
             <a id='news_link_a' href='/gazette.html'>
                 <div id='news_link_div'>
-                    <h1>News!</h1>
+                    <h1>News</h1>
                     <b>Updated ${timeDiff(dateParser(data.querySelector("updated").innerHTML))}</b>
                 </div>
             </a>
@@ -64,7 +64,7 @@ fetch(FEED_URL)
                 updates += `
                     <a href="/gazette.html?entry=${el.querySelector('id').innerHTML}">
                         <div>
-                            <b>${dateParser(el.querySelector("published").innerHTML).toLocaleDateString("en-US", article_date_options)}:</b>
+                            <span>${dateParser(el.querySelector("published").innerHTML).toLocaleDateString("en-US", article_date_options)}:</span>
                             <p> ${el.querySelector("summary").innerHTML}</p>
                         </div>
                     </a>
@@ -92,7 +92,7 @@ fetch(FEED_URL)
                         <img src="/graphics/scenery/transparent.png">
                     </a>
                     <div>
-                        There is nothing on the spotlight<br> right now, but stay tuned!
+                        
                     </div>
                 `
         };
