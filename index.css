@@ -60,8 +60,7 @@ a:link { text-decoration: underline; }
     box-sizing: border-box;
     border-radius: 6px;
     border-collapse: collapse;
-    background-repeat: repeat;
-    margin-bottom: 20px;
+    width: 672px;
 }
   
 #navigator{
