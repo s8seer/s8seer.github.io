@@ -1,0 +1,58 @@
+:root{
+    --soft-outline: 1px solid rgba(226, 226, 226, 0.473);
+}
+
+body{
+    background-color: rgb(12, 12, 12);
+    color: lightgray;
+}
+#main{
+    left: 50px;
+    top: 50px;
+    padding: 10px;
+    position: absolute;
+    border: 1px solid rgba(165, 165, 165, 0.486);
+    background-color: rgb(24, 24, 24);
+    width: 800px;
+}
+a{
+    color: rgb(111, 199, 133);
+}
+
+#main code{
+    white-space: nowrap;
+    overflow-x: scroll;
+    display: inline-block;
+    
+    margin: 0px;
+    padding: 5px;
+    width: 500px;
+
+    background-color: rgb(51, 51, 51);
+    color: white;
+    border: var(--soft-outline);
+    border-radius: 6px;
+    box-sizing: border-box;
+    height: 30px;
+    margin-top: 10px;
+}
+
+#main button{
+    display: inline-block;
+    position: absolute;
+    padding: 0px;
+    height: 30px;
+    box-sizing: border-box;
+    margin: 0px;
+    
+    margin-left: 10px;
+    padding: 5px;
+
+    margin-top: 10px;
+    border: var(--soft-outline);
+    background-color: rgb(51, 51, 51);
+    color: white;
+    border-radius: 6px;
+    box-sizing: border-box;
+    height: 30px;
+}
