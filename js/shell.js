@@ -1,3 +1,5 @@
+//  <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
+
 const terminal_div = document.getElementById('terminal')
 const shell_paragraph = document.getElementById('shellParagraph')
 const shell_form = document.getElementById('shellForm');
@@ -7,15 +9,28 @@ let prefix = '/usr/shell/> ';
 let hist = [''];
 let focus_state = false;
 
+let dir = ['/index.html', '/resources.html', '/booklets.html', '/console.html']
+
 // append new line to the start of input
 function newLine(){
     shell_input.parentNode.insertBefore(document.createElement('br'), shell_input);
 }
+
 function newText(input_value) {
     var text_node = document.createTextNode(input_value);
     shell_input.parentNode.insertBefore(text_node, shell_input);
     newLine();
 }
+
+function newLink(text, url) {
+    let hyperlink = document.createElement('a');
+    hyperlink.href = url;
+    hyperlink.innerText = text;
+    hyperlink.setAttribute('target','_blank');
+    shell_input.parentNode.insertBefore(hyperlink, shell_input);
+    newLine();
+}
+
 function append(input_value) {
     previousNode = shell_input.previousSibling;
     previousNode.nodeValue = previousNode.nodeValue + input_value;
@@ -27,6 +42,7 @@ function loadPrefix(){
 
 // run shell related commands on shell start
 function shellrc(){
+
 }
 
 function clear(){
@@ -37,10 +53,7 @@ function clear(){
     }
 }
 
-function submitCommand(noNewLine = false){
-    if (!noNewLine){
-        newLine();
-    }
+function submitCommand(){
     loadPrefix(); shell_form.reset();
     terminal_div.scrollTo(0, terminal_div.scrollHeight);
     return;
@@ -55,23 +68,26 @@ function submitted(event) {
 
     if (command == "help") {
         newText("Available commands are:")
-        newText("exit, reset, clear")
-    } else if (["exit","poweroff"].includes(command)){
-        terminal_window.style.display = 'none'; shell_input.blur();
-        clear(); shellrc();
-        submitCommand(); return;
-    } else if ( command == "reset" ) {
-        clear(); shellrc();
-        submitCommand(true); return;
-    } else if ( command == "clear" ) { // manual submit
+        newText("help, exit, clear", true)
+    } 
+
+    else if ( command == "clear" ) { // manual submit
         clear();
         loadPrefix(); shell_form.reset(); terminal_div.scrollTo(0, terminal_div.scrollHeight); return;
-    } else if ( ["ls",":(){ :|:& };:",":(){:|:&};:"].includes(command) ) {
-        newText('Insufficent permissions.');
-    } else if (command == '' || ['false'].includes(command)) { // manual submit
+    } 
+
+    else if (command == "ls"){
+        for (let i = 0; i < dir.length; i++){
+            newLink(dir[i], dir[i]);
+        }
+    }
+
+    else if (command == '') {
         loadPrefix(); shell_form.reset(); terminal_div.scrollTo(0, terminal_div.scrollHeight); return;
-    } else {
-        newText("Can't find command '" + command + "'");
+    } 
+
+    else {
+        newText("Unknown command '" + command + "'", true);
     };
     submitCommand(); return;
 }
@@ -94,8 +110,8 @@ function addBindings() {
     }
 }
 
-
 // Run these
 addBindings();
 shellrc();
 loadPrefix();
+shell_input.focus();
