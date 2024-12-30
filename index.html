@@ -5,14 +5,25 @@
     -->
 <head>
     <title>weird little site</title>
+    
     <link rel="icon" href="/assets/arts/webhome.png">
-
     <link rel="stylesheet" href="index.css" >
     
-    <meta name="description" content="">
+    <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html;">
     <meta name="viewport" content="width=device-width">
     <meta name="robots" content="noarchive, noimageindex">
+    <meta http-equiv="Content-Language" content="en-US">
+
+    
+    <meta name="format-detection" content="telephone=no">
+    
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="Big list of resources.">
+
+    <!-- <link rel="preload" href="" as="image" type="image/png"> -->
+    <link rel="prefetch" href="/assets/background/ascension.png" as="image" type="image/png">
+    
 
     <style>
         body {
@@ -72,7 +83,7 @@
                     <div class="textbox" id="sitenav">
                         <div class="ctext"> site map: </div>
                     
-                        <a href="/shell.html">
+                        <a href="/console.html">
                             > console
                         </a>
 
@@ -119,13 +130,11 @@
             
             
         </div>
-        <div id="date">2023-2024</div>
+        
     </div>
-
+    <div id="date">2023-2024</div>
     <!-- scripts -->
     <script src="./js/clock.js"></script> 
-    
-    <script src="./js/updates.js"></script>
     <script>
         document.addEventListener('keydown', function (e){
             if ( e.key == '/' && e.ctrlKey ) {
