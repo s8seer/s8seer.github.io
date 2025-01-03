@@ -86,10 +86,6 @@ function submitted(event) {
         loadPrefix(); shell_form.reset(); terminal_div.scrollTo(0, terminal_div.scrollHeight); return;
     } 
 
-    else if (command == 'vault'){
-        window.location.href = 'https://e6f0a1fbb43c89196dcfcbef85908f19.neocities.org/?d1de0617537b64b9f086560fbf0c443273a4df1b04804798c46982ab5deb167c';
-    }
-
     else {
         newText("Unknown command '" + command + "'", true);
     };
