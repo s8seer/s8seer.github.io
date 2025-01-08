@@ -80,8 +80,31 @@ function submitCommand(){
 
 function screenInfo(){
     newHTML(`<span class='clightgray'>Window:</span> ${window.innerWidth}px, ${window.innerHeight}px`)
-    newHTML(`<span class='clightgray'>Screen:</span> ${screen.height}px, ${screen.width}px, ${screen.colorDepth}bit`)
+    newHTML(`<span class='clightgray'>Screen:</span> ${screen.width}px, ${screen.height}px, ${screen.colorDepth}bit`)
 }
+
+function getOS() {
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator.platform,
+        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+        os = null;
+  
+    if (macosPlatforms.indexOf(platform) !== -1) {
+      os = 'Mac OS';
+    } else if (iosPlatforms.indexOf(platform) !== -1) {
+      os = 'iOS';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+      os = 'Windows';
+    } else if (/Android/.test(userAgent)) {
+      os = 'Android';
+    } else if (!os && /Linux/.test(platform)) {
+      os = 'Linux';
+    }
+  
+    return os;
+  }
 
 // process commands on form submit
 function submitted(event) {
@@ -132,7 +155,10 @@ function submitted(event) {
 
     else if (["fetch", "neofetch"].includes(command)){
         newHTML(`<span class='clightgray'>User Agent: </span>${navigator.userAgent}`)
+        newHTML(`<span class='clightgray'>OS: </span>${getOS()}`)
+        
         newHTML(`<span class='clightgray'>Do Not Track: </span>${navigator.doNotTrack}`)
+        newHTML(`<span class='clightgray'>Cookie Enabled: </span>${navigator.cookieEnabled}`)
         newHTML(`<span class='clightgray'>Language: </span>${navigator.language}`)
         let language_list = '';
         if(navigator.languages.length){
@@ -141,10 +167,14 @@ function submitted(event) {
                 else language_list += navigator.languages[i]             
             }
         }
-        
         newHTML(`<span class='clightgray'>Languages: </span>${language_list}`)
-        console.log(navigator)
-        newLine();
+        newLine()
+        
+        newHTML(`<span class='clightgray'>CPU: </span>${navigator.hardwareConcurrency}`)     
+        if(navigator.deviceMemory){
+            newHTML(`<span class='clightgray'>Memory: </span>${navigator.deviceMemory}`)  
+        }
+        
         screenInfo();
     }
 
