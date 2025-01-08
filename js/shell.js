@@ -5,7 +5,7 @@ const shell_paragraph = document.getElementById('shellParagraph')
 const shell_form = document.getElementById('shellForm');
 const shell_input = document.getElementById('shellInput');
 const terminal_window = document.getElementById('terminal-container-window');
-let prefix = "<span class='cprefix'>/usr/shell/></span> ";
+let prefix = "/usr/shell/> ";
 let hist = [];
 let hist_index = 0;
 let focus_state = false;
@@ -40,13 +40,14 @@ function newLink(text, url) {
 }
 
 function append(prefix_node, input_value) {
-    // previousNode.nodeValue = previousNode.nodeValue + input_value;
-    prefix_node.innerHTML = prefix_node.innerHTML + input_value;
+    var prefix_node = document.createTextNode(input_value);
+    shell_input.parentNode.insertBefore(prefix_node, shell_input);
+    //prefix_node.innerHTML = prefix_node.innerHTML + input_value;
 }
 
 function warnprefix(prefix_node){
-    prefix_node.firstChild.classList.remove('cprefix');
-    prefix_node.firstChild.classList.add('cprefixerr');
+    prefix_node.classList.remove('cprefix');
+    prefix_node.classList.add('cprefixerr');
 }
 
 function loadPrefix(){
@@ -55,6 +56,7 @@ function loadPrefix(){
 }
 function loadPrefix(){
     var prefix_node = document.createElement('span');
+    prefix_node.classList.add('cprefix');
     prefix_node.innerHTML = prefix;
     shell_input.parentNode.insertBefore(prefix_node, shell_input);
 }
@@ -117,7 +119,7 @@ function submitted(event) {
     if (command == "help") {
         newText("Available commands are:")
         // Unimportant hidden commands:
-        // history, 
+        // history
         newText("help, exit, clear, dxdiag, fetch", true)
     } 
 
@@ -149,8 +151,16 @@ function submitted(event) {
         loadPrefix(); shell_form.reset(); terminal_div.scrollTo(0, terminal_div.scrollHeight); return;
     } 
 
+    else if (["hey", "hello"].includes(command)) {
+        newHTML('<img src="/assets/arts/hey2.gif">')
+    } 
+
+
     else if (command == 'exit'){
         window.location.href = "/";
+        shell_input.value = '';
+        shell_input.remove()
+        return;
     }
 
     else if (["fetch", "neofetch"].includes(command)){
