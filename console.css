@@ -1,4 +1,4 @@
-﻿@font-face {
+@font-face {
     font-family: 'monospace';
     src: url('/doctype/Profontwindows.ttf');
 }
@@ -57,6 +57,28 @@ a:hover{
     color: var(--term_bg);
     background: white;
 }
+
+/*                */
+/* CONSOLE COLORS */
+/*                */
+
+.clightgray{
+    color: rgb(204, 204, 204);
+}
+
+.cprefix{
+    color: rgb(119, 197, 109);
+}
+
+.cprefixerr{
+    color: rgb(197, 109, 109);
+}
+
+
+/*         */
+/* TASKBAR */
+/*         */
+
 #taskbar{ 
     font-family: 'Determination';
     color:white;
