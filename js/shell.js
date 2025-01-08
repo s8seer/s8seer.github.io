@@ -95,7 +95,7 @@ function submitted(event) {
         newText("Available commands are:")
         // Unimportant hidden commands:
         // history, 
-        newText("help, exit, clear, dxdiag", true)
+        newText("help, exit, clear, dxdiag, fetch", true)
     } 
 
     else if ( command == "clear" ) { // manual submit
@@ -130,7 +130,7 @@ function submitted(event) {
         window.location.href = "/";
     }
 
-    else if (command == "fetch"){
+    else if (["fetch", "neofetch"].includes(command)){
         newHTML(`<span class='clightgray'>User Agent: </span>${navigator.userAgent}`)
         newHTML(`<span class='clightgray'>Do Not Track: </span>${navigator.doNotTrack}`)
         newHTML(`<span class='clightgray'>Language: </span>${navigator.language}`)
