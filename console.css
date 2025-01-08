@@ -32,6 +32,8 @@ a:hover{
     text-align:left; text-indent: 1px;
     border: none; outline: none; background: none;
     caret-color: var(--term_highlight);
+    padding-top: 0;
+    padding-bottom: 0;
 }
 #shellInput:focus{ outline: none; }
 #terminal-container-window {
@@ -61,6 +63,8 @@ a:hover{
 /*                */
 /* CONSOLE COLORS */
 /*                */
+
+
 
 .clightgray{
     color: rgb(204, 204, 204);
