@@ -17,6 +17,13 @@ html{
 
 body{
     line-height: 18px;
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh !important;
+    width: 100vw !important;
+    margin: 0px;
 }
   
 a{ 
@@ -89,7 +96,8 @@ a:link { text-decoration: underline; }
     box-sizing: border-box;
     padding: 10px;
     font-size: xx-large;
-    width: auto;
+    /* width: auto; */
+    width: 292px;
 }
 
 #siteheader,
@@ -143,9 +151,6 @@ a:link { text-decoration: underline; }
     margin-bottom: 50px;
     border: none; padding: 5px; box-sizing: border-box;
 }
-
-
-
   
 .hcenter{ position: absolute; left: 50%; transform: translateX(-50%) }
 .vhcenter{ 
@@ -156,7 +161,7 @@ a:link { text-decoration: underline; }
 }
 .bob { -webkit-transition: 0.05s; transition: 0.05s; }
 .bob:hover { transform: translate(0px, -4px); -webkit-transition: 0.05s; transition: 0.05s; }
-    
+
 #date{ 
     font-size: 12px;
     position: absolute;
@@ -165,13 +170,18 @@ a:link { text-decoration: underline; }
     color: var(--site-fg); 
     margin-top: 20px; 
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.726);
-    
 }
+
 #date::selection{ color: var(--site-bg); background: var(--site-fg); text-shadow: none;}
 #contact{ color: var(--site-fg)}
 
 #portrait{
     height: 175px;
+}
+
+#container{
+    text-align: center; 
+    top: 100px;
 }
 
 #greeter{
@@ -269,4 +279,29 @@ a:link { text-decoration: underline; }
 }
 .none{
     font-family: 'com';
+}
+
+/* Mobile Ughh */
+@media all and (max-width: 642px)
+{
+    #container{
+        top: 60px;
+    }
+
+    #prison{
+        padding-top: 0px;
+        width: 100vw;
+    }
+
+    #greeter,
+    #sitenav,
+    .textbox{
+        width: calc(100vw - 20px) !important;
+        box-sizing: border-box;
+        left: 0px;
+        display:block;
+    }
+    #greeter{
+        margin-left: 0px;
+    }
 }
