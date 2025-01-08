@@ -282,7 +282,7 @@ a:link { text-decoration: underline; }
 }
 
 /* Mobile Ughh */
-@media all and (max-width: 642px)
+@media all and (max-width: 656px)
 {
     #container{
         top: 60px;
@@ -303,5 +303,13 @@ a:link { text-decoration: underline; }
     }
     #greeter{
         margin-left: 0px;
+    }
+}
+
+@media all and (max-width: 456px)
+{
+    #header_left,
+    #header_right{
+        display: none;
     }
 }
