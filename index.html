@@ -1,307 +1,148 @@
-@font-face { font-family: 'Determination'; src: url('/doctype/DeterminationMonoWeb.ttf'); }
-@font-face { font-family: 'monospace'; src: url('/doctype/Profontwindows.ttf'); }
-@font-face { font-family: 'GenericMobile'; src: url('/doctype/GenericMobileSystem.ttf'); }
-@font-face { font-family: 'GenericMobileN'; src: url('/doctype/GenericMobileSystemNuevo.ttf'); }
-@font-face { font-family: 'com'; src: url('/doctype/Comodore64.woff2'); }
-
-:root {
-    --site-bg: rgb(0, 0, 0);
-    --site-fg: white;
-    --translucent-bg: rgba(0, 0, 0, 0.63);
-    background-attachment: fixed;
-}
-
-html{ 
-    font-family:'Determination';
-}
-
-body{
-    line-height: 18px;
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh !important;
-    width: 100vw !important;
-    margin: 0px;
-}
-  
-a{ 
-    color: #aa8728;
-}
-
-a:link { text-decoration: underline; }
-.textbox a:hover{ text-decoration: none; color: white; background-color: #aa8728;}
-::selection{ color: var(--site-fg); background: var(--translucent-bg); }
-
-.textbox {
-    padding: 1px;
-    text-align: left;
-    background-color: white;
-    background-image: url('/assets/background/textbg.png'); 
-}
-
-.ctext{ text-align: center; }
-.noselection::selection{ background: unset; color:unset; cursor: default;}
-
-#prison {
-    text-align: center;
-    width: auto;
-    padding: 10px;
-    position: relative;
-    overflow: auto;
-    background-position: center;
-    box-sizing: border-box;
-    border-radius: 6px;
-    border-collapse: collapse;
-    width: 672px;
-}
-  
-#navigator{
-    float: left;
-    top: 0px;
-    left: 10px;
-}
-#navigator .textbox{
-    margin-bottom: 10px; 
-    width: 314px;
-}
-  
-#sitenav{
-    text-align: center;
-}
-
-#sitenav a{      
-    text-align: left;
-    display: block;
-    margin: 2px 2px 0px 2px;
-    padding: 0px 5px 0px 5px;
-    background-color: black;
-    color: white;  
-    text-decoration: none;
-}
-
-#sitenav a:hover{
-    background-color: #aa8728;
-}
-
-#siteheader { 
-    font-family: 'Determination';
-    color: #d3a937;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    top: -50px;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: xx-large;
-    /* width: auto; */
-    width: 292px;
-}
-
-#siteheader,
-#header_left,
-#header_right{
-    line-height: 18px;
-    outline: 1px solid rgba(255, 255, 255, 0.24);
-    background-color: rgba(39, 39, 39, 0.76);
-}
-
-#header_left,
-#header_right{
-    position: absolute;
-    top: -50px;
-    height: 38px;
-    image-rendering: pixelated;
-    padding-left: 0px;
-    padding-right: 0px;
-    width: 70px;
-    object-fit: cover;
-    object-position: bottom;
+<!DOCTYPE html>
+<html>
+    <!-- 
+        This website was made without the use of any generative ai
+    -->
+<head>
+    <title>weird little site</title>
     
-}
+    <link rel="icon" href="/assets/arts/webhome.png">
+    <link rel="stylesheet" href="index.css" >
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html;">
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noarchive, noimageindex">
+    <meta http-equiv="Content-Language" content="en-US">
 
-#header_left img,
-#header_right img{
-    height: 36px;
-    width: 60px;
-    object-fit: cover;
-    object-position: bottom;
-    filter: invert(61%) sepia(65%) saturate(447%) hue-rotate(6deg) brightness(99%) contrast(88%);
-}
+    
+    <meta name="format-detection" content="telephone=no">
+    
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="Big list of resources.">
 
-#header_left{
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: -190px;
-}
+    <!-- <link rel="preload" href="" as="image" type="image/png"> -->
+    <link rel="prefetch" href="/assets/background/ascension.png" as="image" type="image/png">
+    
 
-#header_right{
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 190px;
-}
+    <style>
+        body {
+            background-color: #040404 !important;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("/assets/background/basement.png");
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
 
-#ViewPort3D{ 
-    /* image-rendering: pixelated; */
-    width: 140px; height: 165px; position: absolute; right: 0; bottom: 0; 
-    margin-right: 330px;
-    /* background-color: #3d3d3d3d; outline: 1px solid rgba(255, 255, 255, 0.356); */
-    margin-bottom: 50px;
-    border: none; padding: 5px; box-sizing: border-box;
-}
-  
-.hcenter{ position: absolute; left: 50%; transform: translateX(-50%) }
-.vhcenter{ 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-}
-.bob { -webkit-transition: 0.05s; transition: 0.05s; }
-.bob:hover { transform: translate(0px, -4px); -webkit-transition: 0.05s; transition: 0.05s; }
+        body::before{
+            content: "";
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            background: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("/assets/background/basement.png");
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 
-#date{ 
-    font-size: 12px;
-    position: absolute;
-    left: 10px;
-    bottom: 5px;
-    color: var(--site-fg); 
-    margin-top: 20px; 
-    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.726);
-}
+</head>
 
-#date::selection{ color: var(--site-bg); background: var(--site-fg); text-shadow: none;}
-#contact{ color: var(--site-fg)}
+<body>
+    
 
-#portrait{
-    height: 175px;
-}
+    <div class="hcenter" id="container">
+        
+        <div id="leftpanel">
+            <div id="visitor" class="desktopOnly">
+                <span class="noselection">Latest Visitor</span>
+                <img src="/assets/arts/visitor.gif">
+            </div>
+        </div>
 
-#container{
-    text-align: center; 
-    top: 100px;
-}
+        <div id="header_left" class="noselection">
+            <img  src="/assets/arts/divider_left.png" class="noselection">
+        </div>
+        
+        <a href="https://s8seer.github.io/" id="siteheader" class="noselection">weird little site</a>
 
-#greeter{
-    margin-left: 20px;
-    float: left;
-    height: 175px;
-    bottom: 120px;
-    outline: 1px solid rgba(255, 255, 255, 0.411);
-    box-sizing: border-box;
-    width: 316px;
-    background-color: rgb(245, 245, 245);
-    padding: 10px;
-    background-image: 
-            linear-gradient(
-                rgba(0, 0, 0, 0.75), 
-                rgba(0, 0, 0, 0.75)
-            ),
-            url("/assets/background/flowergrays.png");
-            background-size: 256px;
-    backdrop-filter: blur(18px);
-    color: rgb(230, 230, 230);
-}
-#greeter p{
-    margin: 0px;
-    width: 100%;
-    text-align: left;
-    overflow-wrap: break-word;
-}
+        <div id="header_right" class="noselection">
+            <img  src="/assets/arts/divider_right.png" class="noselection">    
+        </div>
+        
+        <div id="prison">
+            <div>
+                <div id="navigator">
+                    <!-- <img id="portrait" src="/assets/arts/portrait.png"> -->
+                    <div class="textbox" id="sitenav">
+                        <div class="ctext"> site map: </div>
+                    
+                        <a href="/console.html">
+                            > console
+                        </a>
 
-.rainbow-background:hover {
-    background-image: 
-            linear-gradient(
-                rgba(0, 0, 0, 0.12), 
-                rgba(0, 0, 0, 0.12)
-            ),
-            url("/assets/background/linea.gif");
-    text-shadow: 0 0 3px black;
-    background-size: 150%;
-}  
+                        <a href="/resources.html">
+                            > resources
+                        </a>
 
-.mobileOnly{
-    visibility: hidden;
-}
+                        <a href="/booklets.html">
+                            > booklets
+                        </a>
+                    </div>
+                    <div class="textbox">
+                        <div class="ctext">
+                            repositories:
+                        </div>
+                        <a href="https://github.com/s8seer/dotfiles">
+                            > arch linux dotfiles
+                        </a>
+                        <br>
+                        <a href="https://github.com/s8seer/win11dotfiles">
+                            > windows 11 dotfiles
+                        </a>
+                        <br>
+                    </div>
+                    <div class="textbox">
+                        <a href="https://github.com/s8seer/s8seer.github.io" class="rainbow-background">
+                            > this webpage is open source 
+                        </a><br>
+                    </div>
+                </div>
 
-#visitor{
-    z-index: 10;
-    margin: 0px;
-    height: auto;
-    padding: 0px;
-    box-sizing: border-box;
-    background-color: black;
-    color: white;
-}
-
-#visitor img{
-    width: inherit;
-    margin: 0px;
-    margin-bottom: -4px;
-    box-sizing: border-box;
-}
-
-#leftpanel{
-    float: left;
-    height: auto;
-    position: absolute;
-    left: -190px;
-    top: 0px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    color: white;
-}
-
-#leftpanel div{
-    margin-bottom: 20px;
-    width: 170px;
-}
-
-/* font test */
-.MSSans{
-    font-family: 'MSSans';
-    font-size: 14px;
-}
-.gmb{
-    font-family: 'GenericMobile';
-}
-.gmbn{
-    font-family: 'GenericMobileN';
-}
-.regular{
-    font-family: 'regular';
-}
-.none{
-    font-family: 'none';
-}
-.none{
-    font-family: 'com';
-}
-
-/* Mobile Ughh */
-@media all and (max-width: 642px)
-{
-    #container{
-        top: 60px;
-    }
-
-    #prison{
-        padding-top: 0px;
-        width: 100vw;
-    }
-
-    #greeter,
-    #sitenav,
-    .textbox{
-        width: calc(100vw - 20px) !important;
-        box-sizing: border-box;
-        left: 0px;
-        display:block;
-    }
-    #greeter{
-        margin-left: 0px;
-    }
-}
+                <div id="greeter" lang="en">
+                    <p>
+                        Hi there
+                        <br><br>
+                        This is my little homunculus website where I spew out my ideas and keep them devoid of any sunlight and exposure to the outside world.
+                        <br><br>
+                        Updated every once in a while. 
+                        <br>
+                    </p>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            
+            
+        </div>
+        
+    </div>
+    <div id="date">2023-2024</div>
+    <!-- scripts -->
+    <script src="./js/clock.js"></script> 
+    <script>
+        document.addEventListener('keydown', function (e){
+            if ( e.key == '/' && e.ctrlKey ) {
+                window.location.href = "shell.html";
+            }
+        });
+    </script>
+    <script src="./js/mediums.js"></script>
+    <!-- <script src="./js/scanline.js"></script> -->
+</body>
+</html>
