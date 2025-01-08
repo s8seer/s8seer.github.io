@@ -15,9 +15,19 @@
 
             #terminal-title{ cursor:initial; }
 
+            @keyframes terminalLoadIn {
+                0% {
+                    opacity: 0%;
+                }
+                100% {
+                    opacity: 100%;
+                }
+            }
+
             #terminal{
+                animation: terminalLoadIn 0.5s;
                 width: calc(100vw - 19px);
-                height: calc(100dvh - 45px);
+                height: calc(100vh - 45px);
                 resize: none;
             }
 
