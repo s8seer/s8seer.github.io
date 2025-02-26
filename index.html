@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <!-- 
+        This website was made without the use of any generative ai
+    -->
+<head>
+    <title>weird little site</title>
+    
+    <link rel="icon" href="/assets/arts/webhome.png">
+    <link rel="stylesheet" href="index.css" >
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html;">
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noarchive, noimageindex">
+    <meta http-equiv="Content-Language" content="en-US">
+
+    
+    <meta name="format-detection" content="telephone=no">
+    
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="Big list of resources.">
+
+    <!-- <link rel="preload" href="" as="image" type="image/png"> -->
+    <link rel="prefetch" href="/assets/background/ascension.png" as="image" type="image/png">
+    
+
+    <style>
+        body {
+            background-color: #040404 !important;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("/assets/background/basement.png");
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        body::before{
+            content: "";
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            background: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)), url("/assets/background/basement.png");
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+
+    <div class="hcenter" id="container">
+        
+        <div id="leftpanel">
+            <div id="visitor" class="desktopOnly">
+                <span class="noselection">Latest Visitor</span>
+                <img src="/assets/arts/visitor.gif">
+            </div>
+        </div>
+
+        <div id="header_left" class="noselection">
+            <img  src="/assets/arts/divider_left.png" class="noselection">
+        </div>
+        
+        <a href="https://s8seer.github.io/" id="siteheader" class="noselection">weird little site</a>
+
+        <div id="header_right" class="noselection">
+            <img  src="/assets/arts/divider_right.png" class="noselection">    
+        </div>
+        
+        <div id="prison">
+            <div>
+                <div id="navigator">
+                    <!-- <img id="portrait" src="/assets/arts/portrait.png"> -->
+                    <div class="textbox" id="sitenav">
+                        <div class="ctext"> site map: </div>
+                    
+                        <a href="/console.html">
+                            > console
+                        </a>
+
+                        <a href="/resources.html">
+                            > resources
+                        </a>
+
+                        <a href="/booklets.html">
+                            > booklets
+                        </a>
+                    </div>
+                    <div class="textbox">
+                        <div class="ctext">
+                            repositories:
+                        </div>
+                        <a href="https://github.com/s8seer/dotfiles">
+                            > arch linux dotfiles
+                        </a>
+                        <br>
+                        <a href="https://github.com/s8seer/win11dotfiles">
+                            > windows 11 dotfiles
+                        </a>
+                        <br>
+                    </div>
+                    <div class="textbox">
+                        <a href="https://github.com/s8seer/s8seer.github.io" class="rainbow-background">
+                            > this webpage is open source 
+                        </a><br>
+                    </div>
+                </div>
+
+                <div id="greeter" lang="en">
+                    <p>
+                        Hi there
+                        <br><br>
+                        This is my little homunculus website where I spew out my ideas and keep them devoid of any sunlight and exposure to the outside world.
+                        <br><br>
+                        Updated every once in a while. 
+                        <br>
+                    </p>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            
+            
+        </div>
+        
+    </div>
+    <div id="date">2023-2024</div>
+    <!-- scripts -->
+    <script>
+        document.addEventListener('keydown', function (e){
+            if ( e.key == '/' && e.ctrlKey ) {
+                window.location.href = "shell.html";
+            }
+        });
+    </script>
+    <!-- <script src="./js/scanline.js"></script> -->
+</body>
+</html>

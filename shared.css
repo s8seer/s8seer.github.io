@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(12, 12, 12);
+    color: lightgray;
+}
+
+a{
+    color: rgb(111, 199, 133);
+}
+
+#main{
+    top: 36px;
+    left: 50px;   
+    position: absolute;
+    width: 800px;
+}
+
+#main > div{
+    background-color: rgb(24, 24, 24);
+    border: 1px solid rgba(165, 165, 165, 0.486);
+    padding: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+

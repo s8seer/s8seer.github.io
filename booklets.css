@@ -2,23 +2,6 @@
     --soft-outline: 1px solid rgba(226, 226, 226, 0.473);
 }
 
-body{
-    background-color: rgb(12, 12, 12);
-    color: lightgray;
-}
-#main{
-    left: 50px;
-    top: 50px;
-    padding: 10px;
-    position: absolute;
-    border: 1px solid rgba(165, 165, 165, 0.486);
-    background-color: rgb(24, 24, 24);
-    width: 800px;
-}
-a{
-    color: rgb(111, 199, 133);
-}
-
 #main code{
     white-space: nowrap;
     overflow-x: scroll;
@@ -55,4 +38,8 @@ a{
     border-radius: 6px;
     box-sizing: border-box;
     height: 30px;
+}
+
+textarea{
+    width: 492px;
 }
